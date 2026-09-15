@@ -79,6 +79,12 @@ assert.match(oceanGateBreakthrough, /href="\.\.\/\.\.\/"/);
 
 const root = await fs.readFile(path.join(paths.root, "index.html"), "utf8");
 assert.match(root, /MASTER RACE INDEX/);
+assert.match(root, /From first podium/);
+assert.match(root, /THE VICTORY LEDGER/);
+assert.match(root, /Six races\. Six chapters in becoming a winner\./);
+assert.match(root, /28:18\.9 → 20:09\.06/);
+assert.match(root, /VICTORY 06 · The statement victory/);
+assert.match(root, /CURRENT PERFORMANCE BOARD/);
 assert.match(root, /PRS \/ CURRENT BESTS<\/span><strong>13<\/strong>/);
 assert.match(root, /href="reports\/brielle-2026\/"/);
 assert.match(root, /RACES<\/span><strong>22<\/strong>/);

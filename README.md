@@ -67,6 +67,7 @@ Before results are entered, the current edition is the pre-race plan. Once the p
 - Placement percentiles are calculated from official place and field size.
 - The same race record carries goals and predictions into the post-race comparison.
 - The journey engine orders the full ledger chronologically and gives every completed report its point-in-time race number, wins, podiums, recorded PR/current-best count, recent timeline, same-distance comparisons, milestone meaning and next preserved chapter.
+- The master homepage turns that ledger into a career narrative: point-in-time totals, podium rate, 5K and 10K progression, a linked victory ledger for every win, and a current-best board across all preserved race formats.
 - Retrospective context is visibly separated from facts known on race day; course-to-course time comparisons are never treated as normalized performance equivalents.
 - HTML is escaped before restrained inline Markdown is applied.
 - Build validation prevents a final post-race report without an official time and result summary.
