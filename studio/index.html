@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aaron Race Report · Easy Button</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#eaf1f3;background:#071c23;line-height:1.5;--navy:#102c34;--teal:#18a5a9;--orange:#ef6a3a;--gold:#e1ad4f}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:38px 24px 60px}.eyebrow{color:var(--gold);letter-spacing:.14em;font-size:12px;font-weight:900}h1{font-size:clamp(2.5rem,6vw,5rem);line-height:.95;margin:12px 0 18px;letter-spacing:-.05em}.deck{max-width:780px;color:#bad0d5;font-size:1.15rem}.grid{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:22px;margin-top:34px}.panel{background:#0f2b34;border:1px solid #31505a;border-radius:10px;padding:20px}.panel h2{margin:0 0 12px;font-size:1.1rem}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.button{border:0;border-radius:6px;padding:11px 16px;background:var(--teal);color:white;font:inherit;font-weight:800;cursor:pointer}.button.secondary{background:#294a54}.button.publish{background:var(--orange)}.button:hover{filter:brightness(1.1)}textarea{width:100%;min-height:620px;resize:vertical;background:#06171c;color:#dcecee;border:1px solid #48636b;border-radius:6px;padding:14px;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}label{display:block;font-weight:800;margin:16px 0 6px}input{width:100%;background:#06171c;color:white;border:1px solid #48636b;border-radius:6px;padding:11px;font:inherit}.status{white-space:pre-wrap;background:#06171c;border-radius:6px;padding:14px;color:#bdd0d5;min-height:100px}.status.error{border-left:5px solid #ef5d5d}.status.ok{border-left:5px solid #43c28b}.steps{padding-left:22px;color:#cbdadd}.steps li{margin:10px 0}.warning{font-size:13px;color:#f5d999;border-left:4px solid var(--gold);padding-left:12px}.preview{display:none;margin-top:18px}.preview a{color:#6dd8da;font-weight:800}@media(max-width:900px){.grid{grid-template-columns:1fr}textarea{min-height:480px}}
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">AARON’S RUN COACH</p>
+    <h1>Race Report<br>Easy Button.</h1>
+    <p class="deck">One structured race packet becomes a validated, mobile-ready performance report with the same anatomy as Brielle: result, execution, field impact, physiology, mechanics, progression, opportunities and next steps.</p>
+    <div class="grid">
+      <section class="panel">
+        <h2>1 · Race packet</h2>
+        <div class="toolbar">
+          <button class="button secondary" id="template">Load blank template</button>
+          <button class="button secondary" id="brielle">Load Brielle example</button>
+          <button class="button" id="generate">Generate report</button>
+        </div>
+        <textarea id="packet" spellcheck="false" aria-label="Race packet JSON"></textarea>
+      </section>
+      <aside class="panel">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>Ask ChatGPT/Codex to assemble the official result, Garmin evidence, athlete report and competitive field into this repository’s race-packet format.</li>
+          <li>Paste the packet here and press <strong>Generate report</strong>.</li>
+          <li>Review the local preview.</li>
+          <li>Type <strong>PUBLISH</strong> and press the publish button. Only the packet, its generated page and the report archive are committed.</li>
+        </ol>
+        <div id="status" class="status">Load the Brielle example to see a complete packet.</div>
+        <p class="preview" id="preview"><a href="#" target="_blank">Open report preview ↗</a></p>
+        <label for="slug">Report slug</label>
+        <input id="slug" placeholder="race-name-year" autocomplete="off">
+        <label for="confirm">Publish confirmation</label>
+        <input id="confirm" placeholder="Type PUBLISH" autocomplete="off">
+        <div class="toolbar"><button class="button publish" id="publish">Publish to GitHub Pages</button></div>
+        <p class="warning">Publishing is intentionally guarded. It will stop if the repository already contains staged files.</p>
+      </aside>
+    </div>
+  </main>
+  <script>
+    const packet = document.querySelector('#packet');
+    const status = document.querySelector('#status');
+    const slug = document.querySelector('#slug');
+    const preview = document.querySelector('#preview');
+    const show = (message, ok = true) => { status.textContent = message; status.className = `status ${ok ? 'ok' : 'error'}`; };
+    const load = async (url) => { const data = await fetch(url).then(r => r.json()); packet.value = JSON.stringify(data, null, 2); slug.value = data.slug || ''; show('Packet loaded. Edit it or generate the report.'); };
+    document.querySelector('#template').onclick = () => load('/api/template');
+    document.querySelector('#brielle').onclick = () => load('/api/brielle');
+    document.querySelector('#generate').onclick = async () => {
+      try {
+        const data = JSON.parse(packet.value);
+        show('Validating and building…');
+        const response = await fetch('/api/generate', { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify(data) });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error);
+        slug.value = result.slug;
+        preview.style.display = 'block';
+        preview.querySelector('a').href = result.previewUrl;
+        show(`Built ${result.packetPath}\nPreview: ${result.previewUrl}`);
+      } catch (error) { show(error.message, false); }
+    };
+    document.querySelector('#publish').onclick = async () => {
+      try {
+        show('Running final build, commit and push…');
+        const response = await fetch('/api/publish', { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify({slug:slug.value.trim(),confirm:document.querySelector('#confirm').value.trim()}) });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error);
+        show(result.changed ? `Published successfully.\nCommit: ${result.sha}\n${result.url}` : result.message);
+      } catch (error) { show(error.message, false); }
+    };
+    const localStudio = ['127.0.0.1', 'localhost'].includes(location.hostname);
+    if (localStudio) {
+      load('/api/brielle');
+    } else {
+      document.querySelectorAll('button').forEach(button => button.disabled = true);
+      show('The Easy Button runs locally so it can safely build and publish through your authenticated Git checkout. Clone the repository and run: npm run studio', false);
+    }
+  </script>
+</body>
+</html>
