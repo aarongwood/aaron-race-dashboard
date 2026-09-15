@@ -1,0 +1,14 @@
+{
+  "name": "Aaron's Race Desk",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "forwardPorts": [4173],
+  "portsAttributes": {
+    "4173": {
+      "label": "Aaron's Race Desk",
+      "onAutoForward": "openPreview",
+      "visibility": "private"
+    }
+  },
+  "postCreateCommand": "npm test",
+  "postStartCommand": "nohup env RACE_REPORT_HOST=0.0.0.0 npm run studio > /tmp/aaron-race-desk.log 2>&1 &"
+}

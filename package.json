@@ -7,6 +7,7 @@
   "scripts": {
     "race": "node race-report.mjs",
     "build": "node race-report.mjs build-all",
+    "history:import": "node scripts/import-race-history.mjs",
     "studio": "node studio-server.mjs",
     "test": "node tests/run-tests.mjs"
   },

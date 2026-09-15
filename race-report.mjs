@@ -71,7 +71,8 @@ if (command === "new") {
     if (answer.trim() !== "PUBLISH") throw new Error("Publish canceled.");
   }
   await buildAll();
-  const allowed = [path.relative(paths.root, absolute), path.join("reports", record.slug, "index.html"), path.join("reports", record.slug, "pre-race", "index.html"), path.join("reports", "index.html")];
+  const allowed = [path.relative(paths.root, absolute), path.join("reports", record.slug, "index.html"), path.join("reports", "index.html"), path.join("reports", "data.json")];
+  if (record.preRace?.status !== "not-preserved") allowed.push(path.join("reports", record.slug, "pre-race", "index.html"));
   if (record.postRace?.status === "final") allowed.push(path.join("reports", record.slug, "post-race", "index.html"));
   await run("git", ["add", "--", ...allowed]);
   await run("git", ["commit", "-m", `${record.postRace?.status === "final" ? "Publish" : "Plan"} ${record.race.name}`, "--", ...allowed]);

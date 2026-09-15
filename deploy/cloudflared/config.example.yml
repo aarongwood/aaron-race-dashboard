@@ -1,0 +1,9 @@
+# Copy to ~/.cloudflared/config.yml after creating a named tunnel.
+# Put the hostname behind Cloudflare Access before routing public traffic.
+tunnel: REPLACE_WITH_TUNNEL_ID
+credentials-file: /home/aaron/.cloudflared/REPLACE_WITH_TUNNEL_ID.json
+
+ingress:
+  - hostname: races.example.com
+    service: http://127.0.0.1:4173
+  - service: http_status:404

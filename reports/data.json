@@ -1,0 +1,890 @@
+{
+  "generatedAt": "2026-09-15T20:20:28.758Z",
+  "stats": {
+    "completed": 22,
+    "ageGroupWins": 6,
+    "ageGroupPodiums": 14,
+    "officialOrComplete": 19
+  },
+  "races": [
+    {
+      "slug": "brielle-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Brielle Day Hill & Dale 10K",
+        "distance": "10K",
+        "date": "2026-09-12",
+        "startTime": "9:00 AM",
+        "timezone": "America/New_York",
+        "location": "Brielle, New Jersey",
+        "venue": "Brielle Elementary School / Green Acres Park",
+        "priority": "B race",
+        "purpose": "race competitively while protecting the larger Chicago build",
+        "courseType": "Hilly road",
+        "surface": "Primarily paved",
+        "certification": "Unverified",
+        "registrationUrl": "https://runsignup.com/Race/NJ/Brielle/Brielle10K",
+        "resultsUrl": "https://runsignup.com/Race/Results/48392",
+        "courseUrl": "https://www.strava.com/routes/brielle_5571312775651540763",
+        "weatherUrl": ""
+      },
+      "preStatus": "final",
+      "postStatus": "final",
+      "evidence": {
+        "level": "complete",
+        "label": "Official result + performance evidence",
+        "shortLabel": "complete",
+        "note": "Official results, Garmin FIT data, athlete report and a full race review support this analysis."
+      },
+      "result": {
+        "officialTime": "44:11.6",
+        "officialPace": "7:07",
+        "ageGroupPlace": "1",
+        "ageGroupSize": "25",
+        "overallPlace": "19",
+        "overallSize": "202",
+        "recordLabel": "vs. July 4"
+      }
+    },
+    {
+      "slug": "50th-annual-belmar-five-mile-run-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "50th Annual Belmar Five Mile Run",
+        "distance": "5 Mile",
+        "date": "2026-09-05",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Belmar, NJ; controlled race with Ultra Dave",
+        "venue": "",
+        "priority": "B / Controlled",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "provisional",
+        "label": "Partial or provisional result",
+        "shortLabel": "provisional",
+        "note": "The result is preserved from a posted graphic, preliminary listing, race review or device estimate and is labeled accordingly."
+      },
+      "result": {
+        "officialTime": "35:48.6",
+        "officialPace": "7:10",
+        "ageGroupPlace": "7",
+        "ageGroupSize": "97",
+        "overallPlace": "215",
+        "overallSize": "2910",
+        "recordLabel": "Current 5-mile best",
+        "dataQuality": "Posted preliminary RunSignup result / screenshot + FIT"
+      }
+    },
+    {
+      "slug": "the-monmouth-mile-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "The Monmouth Mile 2026",
+        "distance": "1 Mile",
+        "date": "2026-08-28",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Christian Brothers Academy, Lincroft, NJ",
+        "venue": "",
+        "priority": "Speed / Benchmark",
+        "purpose": "Permanent race-history record",
+        "courseType": "Track",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "complete",
+        "label": "Official result + performance evidence",
+        "shortLabel": "complete",
+        "note": "Official result evidence is paired with device data and/or a preserved race review."
+      },
+      "result": {
+        "officialTime": "5:55.96",
+        "officialPace": "5:56",
+        "ageGroupPlace": "",
+        "ageGroupSize": "",
+        "overallPlace": "45",
+        "overallSize": "101",
+        "recordLabel": "Current official mile PR",
+        "dataQuality": "Official result + FIT / race review"
+      }
+    },
+    {
+      "slug": "new-jersey-summer-half-marathon-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "New Jersey Summer Half Marathon",
+        "distance": "Half Marathon",
+        "date": "2026-08-23",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Trails, fields and rolling terrain; athlete-reported ~0.5 mi wrong turn",
+        "venue": "",
+        "priority": "Training / Fun",
+        "purpose": "Permanent race-history record",
+        "courseType": "Off-road",
+        "surface": "Mixed / off-road",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "complete",
+        "label": "Official result + performance evidence",
+        "shortLabel": "complete",
+        "note": "Official result evidence is paired with device data and/or a preserved race review."
+      },
+      "result": {
+        "officialTime": "1:56:09",
+        "officialPace": "8:52",
+        "ageGroupPlace": "1",
+        "ageGroupSize": "",
+        "overallPlace": "15",
+        "overallSize": "",
+        "recordLabel": "Age Group Win",
+        "dataQuality": "Official result + FIT / race review"
+      }
+    },
+    {
+      "slug": "sea-girt-5k-kids-races-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Sea Girt 5K & Kids' Races",
+        "distance": "5K",
+        "date": "2026-08-01",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Sea Girt, NJ",
+        "venue": "",
+        "priority": "C / Flexible",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "provisional",
+        "label": "Partial or provisional result",
+        "shortLabel": "provisional",
+        "note": "The result is preserved from a posted graphic, preliminary listing, race review or device estimate and is labeled accordingly."
+      },
+      "result": {
+        "officialTime": "20:41",
+        "officialPace": "6:39",
+        "ageGroupPlace": "4",
+        "ageGroupSize": "71",
+        "overallPlace": "83",
+        "overallSize": "2950",
+        "recordLabel": "Large-field top-100 finish",
+        "dataQuality": "Result graphic / race review"
+      }
+    },
+    {
+      "slug": "ocean-gate-5k-christmas-in-july-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Ocean Gate 5K - Christmas in July",
+        "distance": "5K",
+        "date": "2026-07-25",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Ocean Gate, NJ; flat/fast certified paved course",
+        "venue": "",
+        "priority": "B / Flexible",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Certified (ledger note)",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "20:09.06",
+        "officialPace": "6:29",
+        "ageGroupPlace": "1",
+        "ageGroupSize": "9",
+        "overallPlace": "13",
+        "overallSize": "176",
+        "recordLabel": "Current official 5K PR / Age Group Win",
+        "dataQuality": "Official result"
+      }
+    },
+    {
+      "slug": "orc-summer-series-5k-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "ORC Summer Series 5K",
+        "distance": "5K",
+        "date": "2026-07-07",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Barnegat Trail; watch recorded after finish",
+        "venue": "",
+        "priority": "C / Club Race",
+        "purpose": "Permanent race-history record",
+        "courseType": "Trail/Road",
+        "surface": "Mixed / off-road",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "provisional",
+        "label": "Partial or provisional result",
+        "shortLabel": "provisional",
+        "note": "The result is preserved from a posted graphic, preliminary listing, race review or device estimate and is labeled accordingly."
+      },
+      "result": {
+        "officialTime": "21:11",
+        "officialPace": "6:49",
+        "ageGroupPlace": "",
+        "ageGroupSize": "",
+        "overallPlace": "2",
+        "overallSize": "",
+        "recordLabel": "Overall Podium",
+        "dataQuality": "Provisional / FIT-file estimate"
+      }
+    },
+    {
+      "slug": "revolutionary-run-10k-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Revolutionary Run 10K",
+        "distance": "10K",
+        "date": "2026-07-04",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Washington Crossing, PA; certified road 10K; hot conditions",
+        "venue": "",
+        "priority": "A Race",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Certified (ledger note)",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "46:19.55",
+        "officialPace": "7:27",
+        "ageGroupPlace": "3",
+        "ageGroupSize": "",
+        "overallPlace": "38",
+        "overallSize": "361",
+        "recordLabel": "Current road 10K PR / Age Group Podium",
+        "dataQuality": "Official certified result"
+      }
+    },
+    {
+      "slug": "pine-beach-5k-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Pine Beach 5K",
+        "distance": "5K",
+        "date": "2026-06-28",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Pine Beach, NJ",
+        "venue": "",
+        "priority": "B/C Tune-up",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "21:09.47",
+        "officialPace": "6:49",
+        "ageGroupPlace": "2",
+        "ageGroupSize": "12",
+        "overallPlace": "27",
+        "overallSize": "305",
+        "recordLabel": "Age Group Podium",
+        "dataQuality": "Official results PDF"
+      }
+    },
+    {
+      "slug": "main-street-donuts-shark-run-5k-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Main Street Donuts Shark Run 5K",
+        "distance": "5K",
+        "date": "2026-06-13",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Matawan, NJ; warm sunny; rolling/turny neighborhood course",
+        "venue": "",
+        "priority": "B/C Tune-up",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road / rolling",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "complete",
+        "label": "Official result + performance evidence",
+        "shortLabel": "complete",
+        "note": "Official result evidence is paired with device data and/or a preserved race review."
+      },
+      "result": {
+        "officialTime": "20:39.8",
+        "officialPace": "6:39",
+        "ageGroupPlace": "1",
+        "ageGroupSize": "3",
+        "overallPlace": "14",
+        "overallSize": "699",
+        "recordLabel": "PR at race / Age Group Win",
+        "dataQuality": "Official Webscorer result / Garmin FIT mechanics"
+      }
+    },
+    {
+      "slug": "valor-5k-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Valor 5K",
+        "distance": "5K",
+        "date": "2026-05-23",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "USATF-certified; flat beachfront out-and-back",
+        "venue": "",
+        "priority": "A Race",
+        "purpose": "Permanent race-history record",
+        "courseType": "Boardwalk/Road",
+        "surface": "Boardwalk / paved",
+        "certification": "Certified (ledger note)",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "20:40.4",
+        "officialPace": "6:39",
+        "ageGroupPlace": "1",
+        "ageGroupSize": "",
+        "overallPlace": "4",
+        "overallSize": "199",
+        "recordLabel": "PR at race / Age Group Win",
+        "dataQuality": "Official result / certificate"
+      }
+    },
+    {
+      "slug": "river-to-bay-5k-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "River to Bay 5K",
+        "distance": "5K",
+        "date": "2026-05-02",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Location not preserved in ledger",
+        "venue": "",
+        "priority": "Major",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "21:07.4",
+        "officialPace": "6:48",
+        "ageGroupPlace": "2",
+        "ageGroupSize": "9",
+        "overallPlace": "16",
+        "overallSize": "291",
+        "recordLabel": "PR at race",
+        "dataQuality": "Official result"
+      }
+    },
+    {
+      "slug": "saucony-love-run-philly-half-marathon-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Saucony Love Run Philly Half Marathon",
+        "distance": "Half Marathon",
+        "date": "2026-03-29",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Philadelphia, PA",
+        "venue": "",
+        "priority": "Major",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "1:43:26",
+        "officialPace": "7:53",
+        "ageGroupPlace": "27",
+        "ageGroupSize": "219",
+        "overallPlace": "1291",
+        "overallSize": "9673",
+        "recordLabel": "Current road half PR",
+        "dataQuality": "Official result; later verified placements"
+      }
+    },
+    {
+      "slug": "united-airlines-nyc-half-2026",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "United Airlines NYC Half",
+        "distance": "Half Marathon",
+        "date": "2026-03-15",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "New York, NY",
+        "venue": "",
+        "priority": "Major",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "1:52:36",
+        "officialPace": "8:35",
+        "ageGroupPlace": "401",
+        "ageGroupSize": "1073",
+        "overallPlace": "9623",
+        "overallSize": "30228",
+        "recordLabel": "",
+        "dataQuality": "Official result"
+      }
+    },
+    {
+      "slug": "christmas-in-the-pines-trail-run-2025",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Christmas in the Pines Trail Run",
+        "distance": "4 Mile Trail",
+        "date": "2025-12-07",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Jakes Branch Park, Beachwood, NJ",
+        "venue": "",
+        "priority": "Historical",
+        "purpose": "Permanent race-history record",
+        "courseType": "Trail",
+        "surface": "Mixed / off-road",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "34:15.63",
+        "officialPace": "8:34",
+        "ageGroupPlace": "1",
+        "ageGroupSize": "8",
+        "overallPlace": "9",
+        "overallSize": "90",
+        "recordLabel": "Current 4-mile trail best",
+        "dataQuality": "Official RunSignup result"
+      }
+    },
+    {
+      "slug": "born-to-run-5-mile-race-2025",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Born to Run 5 Mile Race",
+        "distance": "5 Mile",
+        "date": "2025-11-28",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Location not preserved in ledger",
+        "venue": "",
+        "priority": "Historical",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "40:53",
+        "officialPace": "8:11",
+        "ageGroupPlace": "6",
+        "ageGroupSize": "21",
+        "overallPlace": "75",
+        "overallSize": "385",
+        "recordLabel": "",
+        "dataQuality": "Official result"
+      }
+    },
+    {
+      "slug": "the-new-jersey-fall-half-10k-and-5k-2025",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "The New Jersey Fall Half, 10K, and 5K",
+        "distance": "10K",
+        "date": "2025-11-23",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Non-road benchmark; not a clean road 10K PR",
+        "venue": "",
+        "priority": "Historical",
+        "purpose": "Permanent race-history record",
+        "courseType": "Trail/Hilly/Fields",
+        "surface": "Mixed / off-road",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "58:13",
+        "officialPace": "9:22",
+        "ageGroupPlace": "3",
+        "ageGroupSize": "7",
+        "overallPlace": "23",
+        "overallSize": "",
+        "recordLabel": "PR at race",
+        "dataQuality": "Official result; non-road benchmark"
+      }
+    },
+    {
+      "slug": "5k-race-for-recovery-on-the-boardwalk-2025",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "5K Race for Recovery on the Boardwalk",
+        "distance": "5K",
+        "date": "2025-10-25",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Ocean Grove Boardwalk",
+        "venue": "",
+        "priority": "Historical",
+        "purpose": "Permanent race-history record",
+        "courseType": "Boardwalk/Road",
+        "surface": "Boardwalk / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "23:30.9",
+        "officialPace": "7:34",
+        "ageGroupPlace": "2",
+        "ageGroupSize": "7",
+        "overallPlace": "34",
+        "overallSize": "206",
+        "recordLabel": "PR at race",
+        "dataQuality": "Official result"
+      }
+    },
+    {
+      "slug": "ocnj-half-marathon-10-mile-5k-2025",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "OCNJ Half Marathon, 10 Mile & 5K",
+        "distance": "5K",
+        "date": "2025-09-21",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Ocean City, NJ; 5K event",
+        "venue": "",
+        "priority": "Historical",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "24:38.5",
+        "officialPace": "7:56",
+        "ageGroupPlace": "2",
+        "ageGroupSize": "23",
+        "overallPlace": "52",
+        "overallSize": "568",
+        "recordLabel": "",
+        "dataQuality": "Official result"
+      }
+    },
+    {
+      "slug": "semper-five-2025",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Semper Five",
+        "distance": "5K",
+        "date": "2025-09-13",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Location not preserved in ledger",
+        "venue": "",
+        "priority": "Historical",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "24:47.1",
+        "officialPace": "7:59",
+        "ageGroupPlace": "8",
+        "ageGroupSize": "72",
+        "overallPlace": "68",
+        "overallSize": "867",
+        "recordLabel": "",
+        "dataQuality": "Official result"
+      }
+    },
+    {
+      "slug": "lacey-5k-2025",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Lacey 5K",
+        "distance": "5K",
+        "date": "2025-08-23",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Lacey, NJ",
+        "venue": "",
+        "priority": "Historical",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "24:38.3",
+        "officialPace": "7:56",
+        "ageGroupPlace": "3",
+        "ageGroupSize": "14",
+        "overallPlace": "74",
+        "overallSize": "432",
+        "recordLabel": "PR at race",
+        "dataQuality": "Official result"
+      }
+    },
+    {
+      "slug": "ocean-gate-5k-2025",
+      "athlete": "Aaron Greenwood",
+      "race": {
+        "name": "Ocean Gate 5K",
+        "distance": "5K",
+        "date": "2025-07-06",
+        "startTime": "",
+        "timezone": "America/New_York",
+        "location": "Ocean Gate, NJ",
+        "venue": "",
+        "priority": "Historical",
+        "purpose": "Permanent race-history record",
+        "courseType": "Road",
+        "surface": "Road / paved",
+        "certification": "Not preserved",
+        "registrationUrl": "",
+        "resultsUrl": "",
+        "courseUrl": "",
+        "weatherUrl": ""
+      },
+      "preStatus": "not-preserved",
+      "postStatus": "final",
+      "evidence": {
+        "level": "official",
+        "label": "Official result",
+        "shortLabel": "official",
+        "note": "The canonical ledger identifies the result as official. Richer split and mechanics evidence is not attached to this historical record."
+      },
+      "result": {
+        "officialTime": "28:18.9",
+        "officialPace": "9:07",
+        "ageGroupPlace": "3",
+        "ageGroupSize": "13",
+        "overallPlace": "73",
+        "overallSize": "190",
+        "recordLabel": "",
+        "dataQuality": "Official result"
+      }
+    }
+  ]
+}

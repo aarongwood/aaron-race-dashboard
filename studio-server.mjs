@@ -7,7 +7,7 @@ import { promisify } from "node:util";
 import { buildAll, enrichRecord, listRecords, paths, readRecord, recordTemplate, validateRecord } from "./lib/report-factory.mjs";
 
 const exec = promisify(execFile);
-const HOST = "127.0.0.1";
+const HOST = process.env.RACE_REPORT_HOST || "127.0.0.1";
 const PORT = Number(process.env.RACE_REPORT_PORT || 4173);
 const MAX_BODY = 3 * 1024 * 1024;
 const MAX_IMPORT = 2 * 1024 * 1024;
@@ -124,7 +124,8 @@ async function publishRecord(slug) {
   const relativeRecord = path.join("races", `${slug}.json`);
   const { record } = await readRecord(relativeRecord);
   await buildAll();
-  const allowed = [relativeRecord, path.join("reports", slug, "index.html"), path.join("reports", slug, "pre-race", "index.html"), path.join("reports", "index.html")];
+  const allowed = [relativeRecord, path.join("reports", slug, "index.html"), path.join("reports", "index.html"), path.join("reports", "data.json")];
+  if (record.preRace?.status !== "not-preserved") allowed.push(path.join("reports", slug, "pre-race", "index.html"));
   if (record.postRace?.status === "final") allowed.push(path.join("reports", slug, "post-race", "index.html"));
   const staged = (await exec("git", ["diff", "--cached", "--name-only"], { cwd: paths.root })).stdout.trim();
   if (staged) throw new Error(`Publish stopped: the repository already has staged files. Commit or unstage them first:\n${staged}`);
@@ -140,7 +141,7 @@ async function raceSummaries() {
   const races = [];
   for (const file of await listRecords()) {
     const record = JSON.parse(await fs.readFile(file, "utf8"));
-    races.push({ slug: record.slug, name: record.race.name, date: record.race.date, preStatus: record.preRace?.status, postStatus: record.postRace?.status });
+    races.push({ slug: record.slug, name: record.race.name, distance: record.race.distance, date: record.race.date, preStatus: record.preRace?.status, postStatus: record.postRace?.status, evidence: record.evidence?.level || "" });
   }
   return races.sort((a, b) => b.date.localeCompare(a.date));
 }
@@ -166,6 +167,7 @@ const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, `http://${HOST}:${PORT}`);
     if (req.method === "GET" && url.pathname === "/api/template") return json(res, 200, recordTemplate());
+    if (req.method === "GET" && url.pathname === "/api/health") return json(res, 200, { ok: true, service: "Aaron's Race Desk" });
     if (req.method === "GET" && url.pathname === "/api/races") return json(res, 200, await raceSummaries());
     if (req.method === "GET" && url.pathname.startsWith("/api/races/")) {
       const slug = decodeURIComponent(url.pathname.slice("/api/races/".length));

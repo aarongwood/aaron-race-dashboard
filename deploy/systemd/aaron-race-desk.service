@@ -1,0 +1,24 @@
+[Unit]
+Description=Aaron's Race Desk
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=aaron
+Group=aaron
+WorkingDirectory=/home/aaron/src/brielle-2026-race-report
+Environment=NODE_ENV=production
+Environment=RACE_REPORT_HOST=127.0.0.1
+Environment=RACE_REPORT_PORT=4173
+ExecStart=/usr/bin/node /home/aaron/src/brielle-2026-race-report/studio-server.mjs
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/home/aaron/src/brielle-2026-race-report
+
+[Install]
+WantedBy=multi-user.target

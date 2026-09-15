@@ -191,7 +191,7 @@ $("#apply-json").onclick = (event) => {
 const localStudio = ["127.0.0.1", "localhost"].includes(location.hostname);
 if (!localStudio) {
   $$('button,input,textarea,select').forEach((control) => control.disabled = true);
-  show("The Race Desk edits and publishes through your authenticated local Git checkout. Run npm run studio, then open http://127.0.0.1:4173/studio/", false);
+  show("This public page is a safe read-only shell. Press Open private Race Desk, sign in to GitHub, and use the forwarded 4173 port to edit and publish from anywhere.", false);
 } else {
   await refreshRaces();
   await loadTemplate();

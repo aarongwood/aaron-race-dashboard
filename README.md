@@ -9,6 +9,18 @@ One permanent race record begins when a race enters Aaron’s calendar and close
 
 Both editions use the Brielle visual language and preserve the stable `#race-execution` deep link.
 
+The repository also contains Aaron’s permanent historical race archive: **22 completed races through Brielle 2026**, imported from the canonical race ledger with source-quality labels. Brielle remains the fully enriched reference report; older races never receive invented pre-race plans or device analysis.
+
+## Open it from anywhere
+
+Use the private GitHub Codespace launcher:
+
+<https://codespaces.new/aarongwood/brielle-2026-race-report?quickstart=1>
+
+GitHub signs you in, creates the repository workspace, starts the Race Desk, and privately forwards port `4173`. Open that forwarded port and use the same Generate / Publish workflow. The public GitHub Pages Studio is intentionally read-only because a static page must not hold repository write credentials.
+
+For an always-on editor hosted on Arjuna behind Cloudflare Access, see [`deploy/README.md`](deploy/README.md). The supplied service binds only to `127.0.0.1`; do not expose the Node port directly.
+
 ## The easy-button workflow
 
 From this repository:
@@ -57,6 +69,25 @@ Before results are entered, the current edition is the pre-race plan. Once the p
 - HTML is escaped before restrained inline Markdown is applied.
 - Build validation prevents a final post-race report without an official time and result summary.
 - Publishing refuses to run with unrelated files already staged.
+- The archive calculates completed-race, age-group-win, age-group-podium and source-verification totals and supports filtering by year, distance and result type.
+- `reports/data.json` exposes the public, non-secret race index for future dashboards and integrations.
+
+## Historical race import
+
+`data/race-history.json` is the normalized snapshot from `AaronGreenwood-Race-Results_v0.13_Updated_Through_Brielle.xlsx`, sheet `Race Log`. Re-run the idempotent import with:
+
+```bash
+npm run history:import
+```
+
+Existing enriched records are preserved by default, which protects Brielle’s complete pre/post report. Use `node scripts/import-race-history.mjs data/race-history.json --overwrite` only when intentionally replacing generated retrospective records.
+
+Evidence tiers are visible on every historical page:
+
+1. **Complete:** official result plus FIT/device evidence and/or preserved review.
+2. **Official:** official result, but no attached mechanics packet.
+3. **Provisional:** preliminary listing, result graphic, race review or FIT estimate.
+4. **Historical ledger:** result survives in the canonical ledger without richer source material.
 
 The importer is deliberately evidence-conservative: it never turns an entry-list prediction or device estimate into an official result. Dynamic race sites may expose only a title; those fields remain for Aaron or Codex to complete.
 
@@ -66,6 +97,7 @@ The importer is deliberately evidence-conservative: it never turns an entry-list
 npm run race -- new chicago-marathon-2026
 npm run race -- validate races/chicago-marathon-2026.json
 npm run race -- build races/chicago-marathon-2026.json
+npm run history:import
 npm test
 npm run race -- publish races/chicago-marathon-2026.json
 ```

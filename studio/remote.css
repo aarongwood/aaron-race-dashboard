@@ -1,0 +1,28 @@
+.button {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.remote-note {
+  max-width: 900px;
+  margin-top: 22px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--teal);
+  background: rgb(13 41 49 / 70%);
+  color: #c7d7d9;
+}
+
+.remote-note code {
+  color: #fff;
+}
+
+.remote-launch {
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .topbar { align-items: flex-start; }
+  .top-actions { flex-wrap: wrap; justify-content: flex-end; }
+  .remote-launch { order: 3; }
+  .wordmark { padding-top: 10px; }
+}

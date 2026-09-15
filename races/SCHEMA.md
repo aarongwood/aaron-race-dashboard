@@ -23,7 +23,7 @@ The pre-race phase includes:
 - shoes, fuel, hydration and equipment notes;
 - evidence sources.
 
-`preRace.status` is `draft` or `final`.
+`preRace.status` is `draft`, `final`, or `not-preserved`. The last value is reserved for retrospective imports and prevents the system from manufacturing a historical race plan.
 
 ## `postRace`
 
@@ -42,6 +42,17 @@ The post-race phase includes:
 - evidence sources.
 
 `postRace.status` remains `pending` until the report is final. A final post-race record requires `officialTime` and `resultSummary`.
+
+## Retrospective imports
+
+Historical rows use the same permanent record but add:
+
+- `evidence.level`: `complete`, `official`, `provisional`, or `historical`;
+- `provenance`: source workbook, sheet and row;
+- `postRace.historicalRecord`: clock time, chip time, effective time, source notes and result notes exactly as preserved;
+- `postRace.dataQuality` and `timeStatus`: visible labels that prevent provisional or device-derived marks from being presented as official.
+
+The importer never invents a pre-race plan, split narrative, physiology, form mechanics, footwear or competitive rivals.
 
 ## Evidence hierarchy
 

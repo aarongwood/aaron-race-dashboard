@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { buildAll, enrichRecord, inline, paths, placementPercentile, readRecord, recordTemplate, renderPostRaceReport, renderPreRaceReport, validateRecord } from "../lib/report-factory.mjs";
+import { buildAll, enrichRecord, inline, listRecords, paths, placementPercentile, readRecord, recordTemplate, renderHistoricalRaceReport, renderPostRaceReport, renderPreRaceReport, validateRecord } from "../lib/report-factory.mjs";
 
 const { record } = await readRecord("races/brielle-2026.json");
 assert.equal(validateRecord(record, "both").length, 0, "Brielle two-stage record must validate");
@@ -39,17 +39,41 @@ assert.equal(template.postRace.competitors[1].gap, "+1:15");
 template.postRace.status = "final";
 assert.ok(validateRecord(template, "post").some((error) => error.includes("resultSummary")));
 
+const historyFiles = await listRecords();
+assert.equal(historyFiles.length, 22, "canonical archive must contain all 22 completed races through Brielle");
+const { record: oceanGate } = await readRecord("races/ocean-gate-5k-2025.json");
+assert.equal(oceanGate.preRace.status, "not-preserved");
+assert.equal(oceanGate.evidence.level, "official");
+assert.equal(validateRecord(oceanGate, "both").length, 0);
+const historical = renderHistoricalRaceReport(oceanGate);
+assert.match(historical, /28:18\.9/);
+assert.match(historical, /3 \/ 13/);
+assert.match(historical, /without manufacturing a split narrative/i);
+assert.doesNotMatch(historical, /Pre-race plan<\/a>/);
+
 const built = await buildAll();
-assert.ok(built.built.length >= 1);
+assert.equal(built.built.length, 22);
 for (const file of [built.archive, path.join(paths.reports, "brielle-2026", "index.html"), path.join(paths.reports, "brielle-2026", "pre-race", "index.html"), path.join(paths.reports, "brielle-2026", "post-race", "index.html")]) {
   const stat = await fs.stat(file);
   assert.ok(stat.size > 600, `${file} should be a substantial HTML document`);
 }
 
 const root = await fs.readFile(path.join(paths.root, "index.html"), "utf8");
-assert.match(root, /id="race-story"/);
-assert.match(root, /id="race-execution"/);
-assert.match(root, /44:11\.6/);
+assert.match(root, /MASTER RACE INDEX/);
+assert.match(root, /PRS \/ CURRENT BESTS<\/span><strong>13<\/strong>/);
+assert.match(root, /href="reports\/brielle-2026\/"/);
+assert.match(root, /RACES<\/span><strong>22<\/strong>/);
+const brielleFeature = await fs.readFile(path.join(paths.root, "features", "brielle-2026", "index.html"), "utf8");
+assert.match(brielleFeature, /id="race-story"/);
+assert.match(brielleFeature, /id="race-execution"/);
+assert.match(brielleFeature, /44:11\.6/);
+const archive = await fs.readFile(built.archive, "utf8");
+assert.match(archive, /AGE-GROUP WINS<\/span><strong>6<\/strong>/);
+assert.match(archive, /AGE-GROUP PODIUMS<\/span><strong>14<\/strong>/);
+assert.match(archive, /filter-distance/);
+const publicData = JSON.parse(await fs.readFile(path.join(paths.reports, "data.json"), "utf8"));
+assert.equal(publicData.stats.completed, 22);
+assert.equal(publicData.races.length, 22);
 
 process.env.RACE_REPORT_PORT = "4174";
 const { importBasics, server } = await import("../studio-server.mjs");
@@ -66,7 +90,10 @@ assert.match(studioHtml, /One race/i);
 assert.match(studioHtml, /Pre-race plan/);
 assert.match(studioHtml, /Post-race analysis/);
 assert.ok(races.some((race) => race.slug === "brielle-2026"));
+assert.equal(races.length, 22);
 assert.equal(brielle.race.name, "Brielle Day Hill & Dale 10K");
+const health = await fetch("http://127.0.0.1:4174/api/health").then((response) => response.json());
+assert.equal(health.ok, true);
 
 const imported = importBasics('<html><head><title>Example 10K | RunSignup</title><script type="application/ld+json">{"@type":"Event","name":"Example 10K","startDate":"2027-04-03T09:00:00-04:00","location":{"name":"Town Park","address":{"addressLocality":"Exampleton","addressRegion":"NJ"}}}</script></head></html>', "https://example.com/race");
 assert.equal(imported.race.name, "Example 10K");

@@ -2,6 +2,18 @@
   "schemaVersion": 2,
   "slug": "brielle-2026",
   "athlete": "Aaron Greenwood",
+  "evidence": {
+    "level": "complete",
+    "label": "Official result + performance evidence",
+    "shortLabel": "complete",
+    "note": "Official results, Garmin FIT data, athlete report and a full race review support this analysis."
+  },
+  "provenance": {
+    "source": "Brielle race-report evidence packet and canonical race ledger",
+    "sheet": "Race Log",
+    "row": 23,
+    "imported": false
+  },
   "race": {
     "name": "Brielle Day Hill & Dale 10K",
     "distance": "10K",
