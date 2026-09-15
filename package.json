@@ -1,0 +1,16 @@
+{
+  "name": "aaron-race-report-factory",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "One-packet race report generator and guarded publisher",
+  "scripts": {
+    "race": "node race-report.mjs",
+    "build": "node race-report.mjs build-all",
+    "studio": "node studio-server.mjs",
+    "test": "node tests/run-tests.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
