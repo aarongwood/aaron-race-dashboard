@@ -54,6 +54,8 @@ Historical rows use the same permanent record but add:
 
 The importer never invents a pre-race plan, split narrative, physiology, form mechanics, footwear or competitive rivals.
 
+At build time, `lib/journey-context.mjs` derives non-destructive point-in-time context across the complete ledger. It does not alter the race JSON. The generated report can therefore explain where a race stood in Aaron’s journey—race number, wins and podiums to date, recorded benchmarks, recent sequence, same-distance deltas, milestone status and the next preserved race—without contaminating the underlying source facts.
+
 ## Evidence hierarchy
 
 1. Official or organizer-posted results control time and placement.

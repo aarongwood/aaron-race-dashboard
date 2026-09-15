@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { buildAll, enrichRecord, inline, listRecords, paths, placementPercentile, readRecord, recordTemplate, renderHistoricalRaceReport, renderPostRaceReport, renderPreRaceReport, validateRecord } from "../lib/report-factory.mjs";
+import { buildJourneyContexts, journeyNarrative } from "../lib/journey-context.mjs";
 
 const { record } = await readRecord("races/brielle-2026.json");
 assert.equal(validateRecord(record, "both").length, 0, "Brielle two-stage record must validate");
@@ -45,10 +46,21 @@ const { record: oceanGate } = await readRecord("races/ocean-gate-5k-2025.json");
 assert.equal(oceanGate.preRace.status, "not-preserved");
 assert.equal(oceanGate.evidence.level, "official");
 assert.equal(validateRecord(oceanGate, "both").length, 0);
+const sourceRecords = [];
+for (const file of historyFiles) sourceRecords.push((await readRecord(file)).record);
+const journeyContexts = buildJourneyContexts(sourceRecords);
+assert.equal(journeyContexts.size, 22);
+assert.equal(journeyContexts.get("ocean-gate-5k-2025").raceNumber, 1);
+assert.equal(journeyNarrative(journeyContexts.get("ocean-gate-5k-2025")).headline, "The starting point");
+assert.equal(journeyNarrative(journeyContexts.get("christmas-in-the-pines-trail-run-2025")).headline, "The first recorded victory");
+assert.equal(journeyContexts.get("ocean-gate-5k-christmas-in-july-2026").priorBestSameDistance.direction, "faster");
+oceanGate.journeyContext = journeyContexts.get(oceanGate.slug);
 const historical = renderHistoricalRaceReport(oceanGate);
 assert.match(historical, /28:18\.9/);
 assert.match(historical, /3 \/ 13/);
-assert.match(historical, /without manufacturing a split narrative/i);
+assert.match(historical, /Where Aaron stood that day/);
+assert.match(historical, /The starting point/);
+assert.match(historical, /What followed/);
 assert.doesNotMatch(historical, /Pre-race plan<\/a>/);
 
 const built = await buildAll();
@@ -57,12 +69,20 @@ for (const file of [built.archive, path.join(paths.reports, "brielle-2026", "ind
   const stat = await fs.stat(file);
   assert.ok(stat.size > 600, `${file} should be a substantial HTML document`);
 }
+const firstWinStory = await fs.readFile(path.join(paths.reports, "christmas-in-the-pines-trail-run-2025", "index.html"), "utf8");
+assert.match(firstWinStory, /The first recorded victory/);
+assert.match(firstWinStory, /First recorded age-group victory/);
+const oceanGateBreakthrough = await fs.readFile(path.join(paths.reports, "ocean-gate-5k-christmas-in-july-2026", "index.html"), "utf8");
+assert.match(oceanGateBreakthrough, /fastest same-distance mark then in the ledger/i);
+assert.match(oceanGateBreakthrough, /What this result changed/);
+assert.match(oceanGateBreakthrough, /href="\.\.\/\.\.\/"/);
 
 const root = await fs.readFile(path.join(paths.root, "index.html"), "utf8");
 assert.match(root, /MASTER RACE INDEX/);
 assert.match(root, /PRS \/ CURRENT BESTS<\/span><strong>13<\/strong>/);
 assert.match(root, /href="reports\/brielle-2026\/"/);
 assert.match(root, /RACES<\/span><strong>22<\/strong>/);
+assert.match(root, /Journey report/);
 const brielleFeature = await fs.readFile(path.join(paths.root, "features", "brielle-2026", "index.html"), "utf8");
 assert.match(brielleFeature, /id="race-story"/);
 assert.match(brielleFeature, /id="race-execution"/);

@@ -77,7 +77,7 @@ if (command === "new") {
   await run("git", ["add", "--", ...allowed]);
   await run("git", ["commit", "-m", `${record.postRace?.status === "final" ? "Publish" : "Plan"} ${record.race.name}`, "--", ...allowed]);
   await run("git", ["push", "origin", "HEAD:main"]);
-  console.log(`Published: https://aarongwood.github.io/brielle-2026-race-report/reports/${record.slug}/`);
+  console.log(`Published: https://aarongwood.github.io/aaron-race-dashboard/reports/${record.slug}/`);
 } else {
   usage();
 }

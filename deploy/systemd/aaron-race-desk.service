@@ -7,18 +7,18 @@ Wants=network-online.target
 Type=simple
 User=aaron
 Group=aaron
-WorkingDirectory=/home/aaron/src/brielle-2026-race-report
+WorkingDirectory=/home/aaron/src/aaron-race-dashboard
 Environment=NODE_ENV=production
 Environment=RACE_REPORT_HOST=127.0.0.1
 Environment=RACE_REPORT_PORT=4173
-ExecStart=/usr/bin/node /home/aaron/src/brielle-2026-race-report/studio-server.mjs
+ExecStart=/usr/bin/node /home/aaron/src/aaron-race-dashboard/studio-server.mjs
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=full
 ProtectHome=read-only
-ReadWritePaths=/home/aaron/src/brielle-2026-race-report
+ReadWritePaths=/home/aaron/src/aaron-race-dashboard
 
 [Install]
 WantedBy=multi-user.target

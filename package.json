@@ -1,9 +1,9 @@
 {
-  "name": "aaron-race-report-factory",
-  "version": "2.0.0",
+  "name": "aaron-race-dashboard",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
-  "description": "Two-stage pre-race planning and post-race analysis system",
+  "description": "Aaron Greenwood's permanent race dashboard, journey archive, and two-stage report system",
   "scripts": {
     "race": "node race-report.mjs",
     "build": "node race-report.mjs build-all",

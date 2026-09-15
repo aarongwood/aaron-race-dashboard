@@ -15,7 +15,7 @@ The repository also contains Aaron’s permanent historical race archive: **22 c
 
 Use the private GitHub Codespace launcher:
 
-<https://codespaces.new/aarongwood/brielle-2026-race-report?quickstart=1>
+<https://codespaces.new/aarongwood/aaron-race-dashboard?quickstart=1>
 
 GitHub signs you in, creates the repository workspace, starts the Race Desk, and privately forwards port `4173`. Open that forwarded port and use the same Generate / Publish workflow. The public GitHub Pages Studio is intentionally read-only because a static page must not hold repository write credentials.
 
@@ -66,6 +66,8 @@ Before results are entered, the current edition is the pre-race plan. Once the p
 - The fixed report templates assemble every required pre- and post-race section.
 - Placement percentiles are calculated from official place and field size.
 - The same race record carries goals and predictions into the post-race comparison.
+- The journey engine orders the full ledger chronologically and gives every completed report its point-in-time race number, wins, podiums, recorded PR/current-best count, recent timeline, same-distance comparisons, milestone meaning and next preserved chapter.
+- Retrospective context is visibly separated from facts known on race day; course-to-course time comparisons are never treated as normalized performance equivalents.
 - HTML is escaped before restrained inline Markdown is applied.
 - Build validation prevents a final post-race report without an official time and result summary.
 - Publishing refuses to run with unrelated files already staged.
@@ -89,7 +91,7 @@ Evidence tiers are visible on every historical page:
 3. **Provisional:** preliminary listing, result graphic, race review or FIT estimate.
 4. **Historical ledger:** result survives in the canonical ledger without richer source material.
 
-The importer is deliberately evidence-conservative: it never turns an entry-list prediction or device estimate into an official result. Dynamic race sites may expose only a title; those fields remain for Aaron or Codex to complete.
+The importer is deliberately evidence-conservative: it never turns an entry-list prediction or device estimate into an official result. Dynamic race sites may expose only a title; those fields remain for Aaron or Codex to complete. Historical journey reports tell the richest story supported by the ledger while refusing to invent splits, physiology, form mechanics, footwear, feelings or competitors.
 
 ## Command line
 
@@ -120,4 +122,4 @@ No credentials are stored in race records or generated pages.
 
 `races/brielle-2026.json` contains both the actual pre-race intelligence and the final 44:11.6 age-group-winning diagnosis. Load **Brielle example** in the Studio to see the full lifecycle populated.
 
-The original hand-built Brielle victory page remains at the repository root.
+The repository root is the master dashboard. The original hand-built Brielle victory feature remains permanently available at `/features/brielle-2026/`.

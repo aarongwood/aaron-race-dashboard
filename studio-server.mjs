@@ -100,7 +100,7 @@ function importBasics(html, url) {
 
 async function importRace(urlValue) {
   const url = assertPublicUrl(urlValue);
-  const response = await fetch(url, { redirect: "follow", headers: { "user-agent": "AaronRaceDesk/2.0 (+https://aarongwood.github.io/brielle-2026-race-report/)" }, signal: AbortSignal.timeout(15000) });
+  const response = await fetch(url, { redirect: "follow", headers: { "user-agent": "AaronRaceDesk/2.0 (+https://aarongwood.github.io/aaron-race-dashboard/)" }, signal: AbortSignal.timeout(15000) });
   if (!response.ok) throw new Error(`Race page returned HTTP ${response.status}.`);
   const length = Number(response.headers.get("content-length") || 0);
   if (length > MAX_IMPORT) throw new Error("Race page is too large to import safely.");
@@ -134,7 +134,7 @@ async function publishRecord(slug) {
   if (!diff) return { changed: false, message: "Nothing changed; this race is already published." };
   await exec("git", ["commit", "-m", `${record.postRace?.status === "final" ? "Publish" : "Plan"} ${record.race.name}`, "--", ...allowed], { cwd: paths.root });
   await exec("git", ["push", "origin", "HEAD:main"], { cwd: paths.root });
-  return { changed: true, sha: (await exec("git", ["rev-parse", "HEAD"], { cwd: paths.root })).stdout.trim(), url: `https://aarongwood.github.io/brielle-2026-race-report/reports/${slug}/` };
+  return { changed: true, sha: (await exec("git", ["rev-parse", "HEAD"], { cwd: paths.root })).stdout.trim(), url: `https://aarongwood.github.io/aaron-race-dashboard/reports/${slug}/` };
 }
 
 async function raceSummaries() {
