@@ -1,0 +1,167 @@
+{
+  "slug": "brielle-2026",
+  "athlete": "Aaron Greenwood",
+  "raceName": "Brielle Day Hill & Dale 10K",
+  "date": "2026-09-12",
+  "displayDate": "SEPTEMBER 12, 2026",
+  "location": "Brielle, New Jersey",
+  "pageTitle": "Age-Group Champion · Aaron Greenwood at Brielle 2026",
+  "description": "Aaron Greenwood's 44:11.6 age-group-winning performance at the 2026 Brielle Day Hill & Dale 10K.",
+  "kicker": "MALE 50–59 CHAMPION",
+  "title": "A disrupting force",
+  "subtitle": "on the hills of Brielle.",
+  "deck": "Aaron Greenwood arrived ready to race, trusted the feeling, and turned the hardest 10K course of his season into a decisive age-group victory and a new official event best.",
+  "edition": "Final post-race edition · Official time and placements",
+  "verdict": "**This was a breakthrough, not a fluke.** Aaron absorbed two major late climbs, closed the final 0.48 mile near 6:15 per mile, and produced his best mechanics at the finish.",
+  "facts": [
+    { "label": "OFFICIAL TIME", "value": "44:11.6", "note": "Garmin: 44:13" },
+    { "label": "OFFICIAL PACE", "value": "7:07", "note": "per mile" },
+    { "label": "AGE GROUP", "value": "1 / 25", "note": "Male 50–59" },
+    { "label": "OVERALL", "value": "19 / 202", "note": "top 9.4%" },
+    { "label": "MEN", "value": "16 / 119", "note": "top 13.4%" },
+    { "label": "WINNING MARGIN", "value": "2:38.8", "note": "over second place" },
+    { "label": "CLIMBING", "value": "361 ft", "note": "Garmin ascent" },
+    { "label": "PR IMPROVEMENT", "value": "2:07.95", "note": "vs. July 4" }
+  ],
+  "sections": [
+    {
+      "id": "result",
+      "title": "The victory",
+      "blocks": [
+        { "type": "paragraph", "text": "At age 53, Aaron ran **44:11.6** on a relentlessly rolling course and won Male 50–59 by **2 minutes, 38.8 seconds**. He finished **19th of 202 overall** and **16th of 119 men**." },
+        { "type": "paragraph", "text": "Brielle was **2:07.95 faster** than the 46:19.55 Revolutionary Run result. Because Brielle's course certification has not been verified, the careful label is **official 10K event best**; Revolutionary Run remains the certified-road benchmark." },
+        { "type": "quote", "text": "He arrived as the leading challenger. He left as the class of the age group." },
+        { "type": "callout", "tone": "success", "title": "Competitive meaning", "text": "The pre-race favorite finished second. Aaron reversed the expected order and won decisively rather than surviving a close finish." }
+      ]
+    },
+    {
+      "id": "race-execution",
+      "title": "Race execution",
+      "blocks": [
+        { "type": "paragraph", "text": "Brielle punished rigid pace targets. Aaron allowed pace to change with the terrain while preserving competitive output, then accessed his fastest decisive running after the final major climb." },
+        {
+          "type": "table",
+          "columns": ["Course segment", "Pace", "HR", "Power", "What it says"],
+          "rows": [
+            { "cells": ["Opening 0.50 mi · uphill", "7:32/mi", "140", "447 W", "Assertive opening climb; heart rate still in normal early kinetics."] },
+            { "cells": ["Next 1.00 mi · net downhill", "6:36/mi", "158", "432 W", "Used gravity without losing rhythm."] },
+            { "cells": ["Major climb · 1.00 mi", "7:37/mi", "164", "407 W", "Pace slowed appropriately while output stayed competitive."] },
+            { "cells": ["Late descent · 0.65 mi", "6:53/mi", "167", "400 W", "Recovered speed immediately after the climb."] },
+            { "cells": ["Final major climb · 0.60 mi", "7:31/mi", "169", "428 W", "Still generating force at race-defining intensity."] },
+            { "cells": ["Closing 0.48 mi", "**6:15/mi**", "169 · max 176", "421 W", "Best decisive running came after the hills."], "highlight": true }
+          ]
+        },
+        { "type": "paragraph", "text": "Heart rate rose progressively instead of spiking and collapsing: **162 bpm average, 176 maximum**. Garmin's 5.0 aerobic Training Effect represents a maximal race-sized stimulus requiring recovery, not a failed effort." }
+      ]
+    },
+    {
+      "id": "competitive-field",
+      "title": "The field Aaron disrupted",
+      "blocks": [
+        { "type": "table", "columns": ["Place", "Athlete", "Time", "Gap"], "rows": [
+          { "cells": ["1", "**Aaron Greenwood**", "**44:11.6**", "—"], "highlight": true },
+          { "cells": ["2", "Scott Isgett", "46:50.4", "+2:38.8"] },
+          { "cells": ["3", "Mick Morris", "47:08.2", "+2:56.6"] },
+          { "cells": ["4", "Dennis Ehrhardt", "47:08.5", "+2:56.9"] }
+        ] },
+        { "type": "paragraph", "text": "Third and fourth were separated by three-tenths of a second. Aaron was nearly three minutes clear of that fight. That is why **disrupting force** is accurate rather than decorative language." }
+      ]
+    },
+    {
+      "id": "aerobic-diagnosis",
+      "title": "Aerobic diagnosis",
+      "blocks": [
+        { "type": "metrics", "items": [
+          { "label": "AVG / MAX HR", "value": "162 / 176", "note": "bpm" },
+          { "label": "AVG / NORM POWER", "value": "420 / 426", "note": "Garmin running watts" },
+          { "label": "AEROBIC EFFECT", "value": "5.0", "note": "VO₂-max primary benefit" },
+          { "label": "CONTINUOUS RUNNING", "value": "44:13", "note": "Garmin duration" }
+        ] },
+        { "type": "paragraph", "text": "Aaron averaged 162 bpm for 44 minutes, reached the upper 160s late, and still closed. The pattern supports a **large, usable aerobic engine** with enough lactate processing and oxygen delivery to sustain competitive output across a hilly 10K." }
+      ]
+    },
+    {
+      "id": "form",
+      "title": "Form under pressure",
+      "blocks": [
+        { "type": "paragraph", "text": "Race-wide mechanics were strong for the terrain: **167.6 spm cadence, 1.352 m stride, 252.3 ms ground contact, 7.08% vertical ratio**, and nearly exact **50.03% balance**." },
+        { "type": "metrics", "variant": "comparison", "items": [
+          { "label": "GROUND CONTACT", "value": "236 ms", "note": "closing segment" },
+          { "label": "STRIDE LENGTH", "value": "1.469 m", "note": "closing segment" },
+          { "label": "VERTICAL RATIO", "value": "6.55%", "note": "closing segment" },
+          { "label": "CADENCE", "value": "171 spm", "note": "max 186" }
+        ] },
+        { "type": "paragraph", "text": "This is the opposite of mechanical collapse. As Aaron accelerated, contact time shortened, stride length opened and proportional vertical movement fell." }
+      ]
+    },
+    {
+      "id": "what-worked",
+      "title": "What made it possible",
+      "blocks": [
+        { "type": "list", "ordered": true, "items": [
+          "**Accumulated fitness.** Months of speed, threshold, hills and endurance created the result.",
+          "**Permission to race.** Aaron arrived fresh and made a clean decision to compete.",
+          "**Shoe confidence.** He chose the trusted ASICS Metaspeed Sky Tokyo.",
+          "**Terrain intelligence.** Pace breathed with elevation while intent stayed constant.",
+          "**Late-race speed.** Cadence and stride were still available after 40 minutes.",
+          "**Healthy movement.** No pain or protective loading was reported."
+        ] }
+      ]
+    },
+    {
+      "id": "progression",
+      "title": "How far he has come",
+      "blocks": [
+        { "type": "timeline", "items": [
+          { "label": "JUL 2025", "value": "28:18.9 · 5K", "note": "Opening race in the current ledger" },
+          { "label": "MAR 2026", "value": "1:43:26 · Half", "note": "Road half-marathon best" },
+          { "label": "JUL 2026", "value": "20:09.06 · 5K", "note": "Nine seconds from sub-20" },
+          { "label": "AUG 2026", "value": "5:55.96 · Mile", "note": "First official sub-six" },
+          { "label": "SEP 2026", "value": "44:11.6 · 10K", "note": "Brielle champion · 1st of 25", "highlight": true }
+        ] },
+        { "type": "paragraph", "text": "The mile, 5K, half-marathon and 10K results demonstrate multiple kinds of ability rather than one fortunate distance or day." }
+      ]
+    },
+    {
+      "id": "opportunities",
+      "title": "Where the next gains live",
+      "blocks": [
+        { "type": "list", "items": [
+          "**Climbing economy.** Preserve quick contact and forward projection as force rises.",
+          "**Moderate-pace economy.** Make race-speed organization cheaper at marathon and steady paces.",
+          "**Long-duration durability.** Carry mechanics, fueling and tissue resilience beyond two hours.",
+          "**Start calibration.** Spend slightly less in the opening minutes on flatter championship courses.",
+          "**Upper-body economy.** Loose jaw, shoulders down, elbows back and hands in lane."
+        ] }
+      ]
+    },
+    {
+      "id": "future",
+      "title": "How far this can go",
+      "blocks": [
+        { "type": "cards", "items": [
+          { "label": "IMMEDIATE", "title": "Sub-20 5K", "text": "Nine seconds separate Aaron from the mark. It is a present-tense goal." },
+          { "label": "NEXT 10K", "title": "Sub-43", "text": "A flatter certified course makes this defensible; sub-42 is the stretch beyond it." },
+          { "label": "HALF MARATHON", "title": "1:42, then sub-1:40", "text": "The bridge is sustainable threshold work and durability." },
+          { "label": "CHICAGO", "title": "Sub-4 remains credible", "text": "Brielle strengthens aerobic confidence without proving 26.2-mile durability by itself." }
+        ] },
+        { "type": "paragraph", "text": "At 53, Aaron is still harvesting adaptations from a relatively young training age. If health, recovery and consistency remain protected, improvement over the next **one to three seasons** is realistic." }
+      ]
+    },
+    {
+      "id": "next-steps",
+      "title": "What comes next",
+      "blocks": [
+        { "type": "callout", "tone": "success", "title": "Convert the win into fitness", "text": "Respect the race-sized load, recover fully, and return to Chicago-specific durability without trying to repay missed miles." },
+        { "type": "paragraph", "text": "The race proved high-aerobic ability, competitive composure and late mechanics. The next job is extending those qualities across longer continuous running while preserving health." }
+      ]
+    }
+  ],
+  "sources": [
+    { "label": "Official RunSignup results", "url": "https://runsignup.com/Race/Results/48392", "note": "official time and placements" },
+    { "label": "Garmin Forerunner 265 activity 24334103706", "note": "session, lap, heart-rate, power and running-dynamics data" },
+    { "label": "Aaron Greenwood post-race report", "note": "fresh on arrival, felt excellent, no injury or unusual leg/hip strain" }
+  ],
+  "sourceNote": "**Measured:** official time and placements, device data and athlete report. **Derived:** gaps, percentages and segment comparisons. **Interpretive:** aerobic, mechanical and future-performance conclusions. Course certification remains unverified.",
+  "footerNote": "Data from official results, Aaron's Garmin Forerunner 265 and athlete-reported experience."
+}
