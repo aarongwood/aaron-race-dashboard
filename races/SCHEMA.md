@@ -1,38 +1,54 @@
-# Race packet contract
+# Canonical two-stage race record
 
-Each report is driven by one UTF-8 JSON file in `races/`. The filename should match `slug`.
+Every file in `races/` is a complete lifecycle record with `schemaVersion: 2`.
 
-## Required top-level fields
+## Identity and race facts
 
-- `slug`: lowercase URL-safe identifier, for example `chicago-marathon-2026`.
-- `athlete`, `raceName`, `date`, `location`.
-- `title`, `deck`, `verdict`: the editorial thesis of the report.
-- `facts`: at least three verified result cards.
-- `sections`: at least two sections. One section must use the exact id `race-execution`; this guarantees the stable `#race-execution` deep link for every race.
+- `slug`: lowercase URL-safe ID; it does not change when the race moves from planning to results.
+- `athlete`: Aaron Greenwood by default.
+- `race`: name, distance, date, start time, timezone, location, venue, priority, purpose, course type, surface, certification status and official URLs.
 
-Optional presentation fields include `displayDate`, `pageTitle`, `description`, `kicker`, `subtitle`, `edition`, `sources`, `sourceNote`, and `footerNote`.
+## `preRace`
 
-## Supported content blocks
+The pre-race phase includes:
 
-- `paragraph`: `{ "type": "paragraph", "text": "..." }`
-- `quote`: `{ "type": "quote", "text": "..." }`
-- `callout`: `{ "type": "callout", "tone": "success", "title": "...", "text": "..." }`
-- `table`: `{ "type": "table", "columns": [...], "rows": [{ "cells": [...], "highlight": true }] }`
-- `metrics`: `{ "type": "metrics", "items": [{ "label": "...", "value": "...", "note": "..." }] }`
-- `list`: `{ "type": "list", "ordered": false, "items": [...] }`
-- `cards`: `{ "type": "cards", "items": [{ "label": "...", "title": "...", "text": "..." }] }`
-- `timeline`: `{ "type": "timeline", "items": [{ "label": "...", "value": "...", "note": "...", "highlight": true }] }`
+- editorial headline, deck and verdict;
+- target time, pace and power plus A/B/C goal hierarchy;
+- race-day outlook and health guardrails;
+- course and weather diagnosis;
+- field size, age-group size, field read and contenders;
+- segment-level strategy (`segment`, `pace`, `power`, `cue`);
+- Green/Yellow/Red readiness rules;
+- operational timeline, bib pickup, parking, arrival and warm-up;
+- shoes, fuel, hydration and equipment notes;
+- evidence sources.
 
-Text fields support restrained inline Markdown: `**bold**`, `*emphasis*`, `` `code` ``, and `[label](https://example.com)`.
+`preRace.status` is `draft` or `final`.
 
-## Evidence standard
+## `postRace`
 
-Facts must distinguish:
+The post-race phase includes:
 
-1. Official or organizer-posted results.
-2. Device-measured data.
-3. Athlete-reported experience.
-4. Derived calculations.
-5. Coaching interpretation.
+- official and device time, official pace and bib;
+- age-group, overall and male place/field-size pairs;
+- margin, ascent, improvement and record label;
+- result thesis and certification caveat;
+- leading competitor results;
+- execution story and split/terrain evidence;
+- heart rate, power and aerobic diagnosis;
+- race-wide and closing running dynamics plus form diagnosis;
+- athlete experience, pain/injury report and race shoes;
+- success factors, opportunities, progression, future goals and immediate next step;
+- evidence sources.
 
-Do not promote predictions, provisional entries, watch estimates, or unverified course claims into official results.
+`postRace.status` remains `pending` until the report is final. A final post-race record requires `officialTime` and `resultSummary`.
+
+## Evidence hierarchy
+
+1. Official or organizer-posted results control time and placement.
+2. Device data explains splits, physiology, terrain and mechanics.
+3. Aaron’s report controls felt experience, pain and decision context.
+4. Calculations derive gaps and percentiles from recorded facts.
+5. Coaching interpretation explains meaning and next steps without being mislabeled as measurement.
+
+Predictions stay in `preRace`; official results stay in `postRace`. Course-certification uncertainty remains explicit.

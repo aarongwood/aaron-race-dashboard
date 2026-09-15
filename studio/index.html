@@ -3,83 +3,100 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Aaron Race Report · Easy Button</title>
-  <style>
-    :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#eaf1f3;background:#071c23;line-height:1.5;--navy:#102c34;--teal:#18a5a9;--orange:#ef6a3a;--gold:#e1ad4f}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:38px 24px 60px}.eyebrow{color:var(--gold);letter-spacing:.14em;font-size:12px;font-weight:900}h1{font-size:clamp(2.5rem,6vw,5rem);line-height:.95;margin:12px 0 18px;letter-spacing:-.05em}.deck{max-width:780px;color:#bad0d5;font-size:1.15rem}.grid{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:22px;margin-top:34px}.panel{background:#0f2b34;border:1px solid #31505a;border-radius:10px;padding:20px}.panel h2{margin:0 0 12px;font-size:1.1rem}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.button{border:0;border-radius:6px;padding:11px 16px;background:var(--teal);color:white;font:inherit;font-weight:800;cursor:pointer}.button.secondary{background:#294a54}.button.publish{background:var(--orange)}.button:hover{filter:brightness(1.1)}textarea{width:100%;min-height:620px;resize:vertical;background:#06171c;color:#dcecee;border:1px solid #48636b;border-radius:6px;padding:14px;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}label{display:block;font-weight:800;margin:16px 0 6px}input{width:100%;background:#06171c;color:white;border:1px solid #48636b;border-radius:6px;padding:11px;font:inherit}.status{white-space:pre-wrap;background:#06171c;border-radius:6px;padding:14px;color:#bdd0d5;min-height:100px}.status.error{border-left:5px solid #ef5d5d}.status.ok{border-left:5px solid #43c28b}.steps{padding-left:22px;color:#cbdadd}.steps li{margin:10px 0}.warning{font-size:13px;color:#f5d999;border-left:4px solid var(--gold);padding-left:12px}.preview{display:none;margin-top:18px}.preview a{color:#6dd8da;font-weight:800}@media(max-width:900px){.grid{grid-template-columns:1fr}textarea{min-height:480px}}
-  </style>
+  <title>Aaron’s Race Desk</title>
+  <link rel="stylesheet" href="studio.css">
 </head>
 <body>
+  <header class="topbar">
+    <a class="wordmark" href="../reports/">AARON’S RUN COACH <span>/ RACE DESK</span></a>
+    <div class="top-actions">
+      <button class="button quiet" id="new-race">+ New race</button>
+      <button class="button quiet" id="load-brielle">Brielle example</button>
+    </div>
+  </header>
   <main>
-    <p class="eyebrow">AARON’S RUN COACH</p>
-    <h1>Race Report<br>Easy Button.</h1>
-    <p class="deck">One structured race packet becomes a validated, mobile-ready performance report with the same anatomy as Brielle: result, execution, field impact, physiology, mechanics, progression, opportunities and next steps.</p>
-    <div class="grid">
-      <section class="panel">
-        <h2>1 · Race packet</h2>
-        <div class="toolbar">
-          <button class="button secondary" id="template">Load blank template</button>
-          <button class="button secondary" id="brielle">Load Brielle example</button>
-          <button class="button" id="generate">Generate report</button>
-        </div>
-        <textarea id="packet" spellcheck="false" aria-label="Race packet JSON"></textarea>
-      </section>
-      <aside class="panel">
-        <h2>How it works</h2>
-        <ol class="steps">
-          <li>Ask ChatGPT/Codex to assemble the official result, Garmin evidence, athlete report and competitive field into this repository’s race-packet format.</li>
-          <li>Paste the packet here and press <strong>Generate report</strong>.</li>
-          <li>Review the local preview.</li>
-          <li>Type <strong>PUBLISH</strong> and press the publish button. Only the packet, its generated page and the report archive are committed.</li>
-        </ol>
-        <div id="status" class="status">Load the Brielle example to see a complete packet.</div>
-        <p class="preview" id="preview"><a href="#" target="_blank">Open report preview ↗</a></p>
-        <label for="slug">Report slug</label>
-        <input id="slug" placeholder="race-name-year" autocomplete="off">
-        <label for="confirm">Publish confirmation</label>
-        <input id="confirm" placeholder="Type PUBLISH" autocomplete="off">
-        <div class="toolbar"><button class="button publish" id="publish">Publish to GitHub Pages</button></div>
-        <p class="warning">Publishing is intentionally guarded. It will stop if the repository already contains staged files.</p>
+    <section class="intro">
+      <p class="eyebrow">ONE RACE · TWO EDITIONS · ONE PERMANENT RECORD</p>
+      <h1>Put the race in.<br><em>Get the plan and the diagnosis out.</em></h1>
+      <p class="deck">Enter an upcoming race once. Build the complete pre-race report. Come back after the finish, add the evidence, and build the matching performance report without starting over.</p>
+      <div class="phase-map" aria-label="Workflow">
+        <span class="active">1 · Race</span><i>→</i><span>2 · Pre-race plan</span><i>→</i><span>3 · Post-race analysis</span><i>→</i><span>4 · Publish</span>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <aside class="rail">
+        <section class="rail-card">
+          <label for="race-picker">Saved races</label>
+          <select id="race-picker"><option value="">New race</option></select>
+        </section>
+        <nav class="phase-tabs" aria-label="Report phase">
+          <button class="active" data-phase="pre"><span>BEFORE</span><strong>Pre-race plan</strong><small>Logistics, field, strategy</small></button>
+          <button data-phase="post"><span>AFTER</span><strong>Post-race analysis</strong><small>Result, diagnosis, future</small></button>
+        </nav>
+        <section class="rail-card checklist">
+          <h2>What the system produces</h2>
+          <ul id="output-list"></ul>
+        </section>
+        <section class="rail-card">
+          <h2>Report status</h2>
+          <div id="status" class="status">Start with the official race URL or load Brielle to see a finished record.</div>
+          <a id="preview-link" class="preview-link" target="_blank" hidden>Open generated report ↗</a>
+        </section>
       </aside>
+
+      <section class="editor">
+        <form id="race-form">
+          <section class="form-card race-core">
+            <div class="card-heading"><div><p class="step">STEP 1</p><h2>The race</h2></div><span class="required-note">Required once</span></div>
+            <div class="import-row">
+              <label class="grow">Official race page<input id="race-url" type="url" placeholder="https://runsignup.com/Race/..."></label>
+              <button class="button secondary" id="import-race" type="button">Pull race basics</button>
+            </div>
+            <p class="help">The importer reads public page metadata when available. You review everything before it enters the report.</p>
+            <div class="fields four">
+              <label class="span-2">Race name<input data-path="race.name" required></label>
+              <label>Distance<input data-path="race.distance" placeholder="10K"></label>
+              <label>Date<input data-path="race.date" type="date" required></label>
+              <label class="span-2">Location<input data-path="race.location" placeholder="City, State" required></label>
+              <label>Start time<input data-path="race.startTime" placeholder="9:00 AM"></label>
+              <label>Priority<select data-path="race.priority"><option>A race</option><option selected>B race</option><option>C race</option><option>Training race</option></select></label>
+              <label class="span-2">Venue / registration area<input data-path="race.venue"></label>
+              <label>Course type<input data-path="race.courseType" placeholder="Hilly road"></label>
+              <label>Surface<input data-path="race.surface" placeholder="Paved"></label>
+              <label class="span-2">Purpose<input data-path="race.purpose" placeholder="Why this race is on the calendar"></label>
+              <label>Certification<input data-path="race.certification" placeholder="Certified / Unverified"></label>
+              <label>Timezone<input data-path="race.timezone" placeholder="America/New_York"></label>
+            </div>
+            <details><summary>Race links</summary><div class="fields two detail-fields">
+              <label>Registration URL<input data-path="race.registrationUrl" type="url"></label>
+              <label>Results URL<input data-path="race.resultsUrl" type="url"></label>
+              <label>Course / map URL<input data-path="race.courseUrl" type="url"></label>
+              <label>Forecast URL<input data-path="race.weatherUrl" type="url"></label>
+            </div></details>
+          </section>
+
+          <div id="phase-form"></div>
+
+          <section class="action-card">
+            <div><p class="step" id="action-step">STEP 2</p><h2 id="action-title">Generate the pre-race report</h2><p id="action-copy">This saves the race record, validates the required evidence, and creates the complete pre-race edition.</p></div>
+            <div class="action-buttons">
+              <button class="button primary" id="generate" type="submit">Generate pre-race report</button>
+              <button class="button quiet" id="show-json" type="button">Advanced: view record</button>
+            </div>
+          </section>
+        </form>
+
+        <section class="publish-card">
+          <div><p class="step">FINAL STEP</p><h2>Publish after review</h2><p>Publishing commits only this race record, its generated editions, its current main page, and the archive.</p></div>
+          <label>Safety confirmation<input id="confirm" placeholder="Type PUBLISH"></label>
+          <button class="button publish" id="publish">Publish current race</button>
+        </section>
+      </section>
     </div>
   </main>
-  <script>
-    const packet = document.querySelector('#packet');
-    const status = document.querySelector('#status');
-    const slug = document.querySelector('#slug');
-    const preview = document.querySelector('#preview');
-    const show = (message, ok = true) => { status.textContent = message; status.className = `status ${ok ? 'ok' : 'error'}`; };
-    const load = async (url) => { const data = await fetch(url).then(r => r.json()); packet.value = JSON.stringify(data, null, 2); slug.value = data.slug || ''; show('Packet loaded. Edit it or generate the report.'); };
-    document.querySelector('#template').onclick = () => load('/api/template');
-    document.querySelector('#brielle').onclick = () => load('/api/brielle');
-    document.querySelector('#generate').onclick = async () => {
-      try {
-        const data = JSON.parse(packet.value);
-        show('Validating and building…');
-        const response = await fetch('/api/generate', { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify(data) });
-        const result = await response.json();
-        if (!response.ok) throw new Error(result.error);
-        slug.value = result.slug;
-        preview.style.display = 'block';
-        preview.querySelector('a').href = result.previewUrl;
-        show(`Built ${result.packetPath}\nPreview: ${result.previewUrl}`);
-      } catch (error) { show(error.message, false); }
-    };
-    document.querySelector('#publish').onclick = async () => {
-      try {
-        show('Running final build, commit and push…');
-        const response = await fetch('/api/publish', { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify({slug:slug.value.trim(),confirm:document.querySelector('#confirm').value.trim()}) });
-        const result = await response.json();
-        if (!response.ok) throw new Error(result.error);
-        show(result.changed ? `Published successfully.\nCommit: ${result.sha}\n${result.url}` : result.message);
-      } catch (error) { show(error.message, false); }
-    };
-    const localStudio = ['127.0.0.1', 'localhost'].includes(location.hostname);
-    if (localStudio) {
-      load('/api/brielle');
-    } else {
-      document.querySelectorAll('button').forEach(button => button.disabled = true);
-      show('The Easy Button runs locally so it can safely build and publish through your authenticated Git checkout. Clone the repository and run: npm run studio', false);
-    }
-  </script>
+
+  <dialog id="json-dialog"><form method="dialog"><div class="dialog-head"><h2>Canonical race record</h2><button aria-label="Close">×</button></div><p>This is the one file that carries the race from planning through final analysis.</p><textarea id="record-json" spellcheck="false"></textarea><div class="dialog-actions"><button class="button secondary" value="cancel">Cancel</button><button class="button primary" id="apply-json" value="default">Apply JSON</button></div></form></dialog>
+  <script type="module" src="app.mjs"></script>
 </body>
 </html>

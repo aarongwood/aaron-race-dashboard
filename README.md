@@ -1,92 +1,91 @@
-# Aaron Race Report Factory
+# Aaron’s Race Desk
 
-This repository now has two jobs:
+This is a repeatable **before-and-after race reporting system**, not a blank report editor.
 
-1. Preserve the original Brielle victory report at the existing root URL, including `#race-execution`.
-2. Generate the same class of evidence-driven report for every future race from one structured race packet.
+One permanent race record begins when a race enters Aaron’s calendar and closes after the official result is diagnosed. The system turns that record into two consistent editions:
 
-## The Easy Button
+1. **Pre-race plan:** overview, purpose, logistics, course/weather, competitive field, segment-by-segment strategy, readiness gate, fueling, hydration, footwear and sources.
+2. **Post-race analysis:** official result, placement percentiles, race execution, competitive impact, aerobic diagnosis, form under pressure, success factors, progression, opportunities, future goals and next step.
 
-On Aaron's Linux or Mac checkout:
+Both editions use the Brielle visual language and preserve the stable `#race-execution` deep link.
+
+## The easy-button workflow
+
+From this repository:
 
 ```bash
+git pull --ff-only
 npm run studio
 ```
 
 Open `http://127.0.0.1:4173/studio/`.
 
-The studio has four deliberate actions:
+### Before the race
 
-1. Load the blank template or Brielle example.
-2. Paste or edit one race packet.
-3. Press **Generate report** and review the preview.
-4. Type `PUBLISH` and press **Publish to GitHub Pages**.
+1. Press **New race**.
+2. Paste the official race URL and press **Pull race basics**. The importer uses public page metadata where available; review the result.
+3. Complete the pre-race form. Repeating rows use one pipe-delimited entry per line and show their format directly below the field.
+4. Press **Generate pre-race report** and review it.
+5. Type `PUBLISH` only when it is ready to go live.
 
-The publish button stages and commits only:
+### After the race
+
+1. Select the same race under **Saved races**.
+2. Press **Post-race analysis**.
+3. Add official results, leading competitors, device splits and metrics, the athlete report, progression and future targets.
+4. Press **Generate post-race report**. The pre-race edition remains intact, while the race’s main URL becomes the final report.
+5. Review, type `PUBLISH`, and publish.
+
+## Permanent URL pattern
+
+For a slug such as `brielle-2026`:
+
+- Current edition: `/reports/brielle-2026/`
+- Preserved pre-race plan: `/reports/brielle-2026/pre-race/`
+- Preserved post-race analysis: `/reports/brielle-2026/post-race/`
+- Stable execution link on either edition: `#race-execution`
+- Archive: `/reports/`
+
+Before results are entered, the current edition is the pre-race plan. Once the post-race status becomes final, the current edition switches to the post-race analysis.
+
+## What is automated
+
+- A public race-page importer reads common Event JSON-LD and page metadata to prefill race name, date, time, distance and location when exposed.
+- The fixed report templates assemble every required pre- and post-race section.
+- Placement percentiles are calculated from official place and field size.
+- The same race record carries goals and predictions into the post-race comparison.
+- HTML is escaped before restrained inline Markdown is applied.
+- Build validation prevents a final post-race report without an official time and result summary.
+- Publishing refuses to run with unrelated files already staged.
+
+The importer is deliberately evidence-conservative: it never turns an entry-list prediction or device estimate into an official result. Dynamic race sites may expose only a title; those fields remain for Aaron or Codex to complete.
+
+## Command line
+
+```bash
+npm run race -- new chicago-marathon-2026
+npm run race -- validate races/chicago-marathon-2026.json
+npm run race -- build races/chicago-marathon-2026.json
+npm test
+npm run race -- publish races/chicago-marathon-2026.json
+```
+
+Use `npm run studio` for normal operation. The JSON commands are an advanced escape hatch.
+
+## Publishing boundary
+
+The Studio stages only:
 
 - `races/<slug>.json`
 - `reports/<slug>/index.html`
+- `reports/<slug>/pre-race/index.html`
+- `reports/<slug>/post-race/index.html` when final
 - `reports/index.html`
 
-It refuses to publish when unrelated files are already staged.
+No credentials are stored in race records or generated pages.
 
-## Lowest-effort ChatGPT/Codex workflow
+## Brielle as the reference implementation
 
-After a race, provide the result page or screenshots, Garmin evidence, your subjective report, and any photos. Then use this request:
+`races/brielle-2026.json` contains both the actual pre-race intelligence and the final 44:11.6 age-group-winning diagnosis. Load **Brielle example** in the Studio to see the full lifecycle populated.
 
-> Build my final race report using the Aaron Race Report Factory in `aarongwood/brielle-2026-race-report`. Reconcile the official result, competitive field, Garmin/FIT data, my athlete report, progression and next steps. Create one valid race packet under `races/`, run the tests, build the report, show me the preview, and wait for my approval before publishing.
-
-That is the real easy button: Aaron supplies evidence and experience; the program enforces structure, validation, consistent presentation and publishing boundaries.
-
-## Command-line workflow
-
-```bash
-# Create a starter packet
-npm run race -- new chicago-marathon-2026
-
-# Validate it
-npm run race -- validate races/chicago-marathon-2026.json
-
-# Generate the report and archive
-npm run race -- build races/chicago-marathon-2026.json
-
-# Run all validation and build tests
-npm test
-
-# Publish after review; the command requires typing PUBLISH
-npm run race -- publish races/chicago-marathon-2026.json
-
-# Explicit non-interactive automation only
-npm run race -- publish races/chicago-marathon-2026.json --yes
-```
-
-Generated URLs follow this stable pattern:
-
-- Report: `https://aarongwood.github.io/brielle-2026-race-report/reports/<slug>/`
-- Race execution: `https://aarongwood.github.io/brielle-2026-race-report/reports/<slug>/#race-execution`
-- Archive: `https://aarongwood.github.io/brielle-2026-race-report/reports/`
-
-The original Brielle URLs remain unchanged.
-
-## Post-race intake checklist
-
-The richest report needs five evidence groups:
-
-- Official result: time, pace, bib, placements, division, field size and awards.
-- Competitive context: leading finishers, gaps, expected challengers and course conditions.
-- Garmin/FIT: elapsed and timer time, splits, HR, power, elevation, Training Effect and running dynamics.
-- Athlete report: freshness, RPE, pain, form, decisive moments, shoe and fueling.
-- Historical comparison: prior bests, recent training, progression, goals and what the result changes.
-
-See [`races/SCHEMA.md`](races/SCHEMA.md) for the exact packet contract.
-
-## Design and safety guarantees
-
-- Every report is mobile responsive and print/PDF friendly.
-- Every report has a stable `#race-execution` anchor.
-- User-entered text is HTML-escaped before restrained inline Markdown is applied.
-- Unsupported block types fail the build.
-- A packet cannot overwrite another race unless it uses the same slug intentionally.
-- Publishing requires an explicit confirmation in the studio.
-- Command-line publishing requires an interactive `PUBLISH` confirmation unless automation deliberately supplies `--yes`.
-- No credentials are stored in the site or packet files.
+The original hand-built Brielle victory page remains at the repository root.
