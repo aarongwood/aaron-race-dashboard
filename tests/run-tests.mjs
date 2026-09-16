@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { buildAll, enrichRecord, inline, listRecords, paths, placementPercentile, readRecord, recordTemplate, renderHistoricalRaceReport, renderPostRaceReport, renderPreRaceReport, validateRecord } from "../lib/report-factory.mjs";
 import { buildJourneyContexts, journeyNarrative } from "../lib/journey-context.mjs";
+import { browserRecordTemplate, populateStarterPlan, renderBrowserReport } from "../studio/browser-runtime.mjs";
 
 const { record } = await readRecord("races/brielle-2026.json");
 assert.equal(validateRecord(record, "both").length, 0, "Brielle two-stage record must validate");
@@ -19,6 +20,27 @@ assert.match(pre, /Competitive field/);
 assert.match(pre, /id="race-execution"/);
 assert.match(pre, /Scott Isgett/);
 assert.match(pre, /ASICS Metaspeed Sky Tokyo/);
+
+const browserRecord = browserRecordTemplate();
+browserRecord.race = {
+  ...browserRecord.race,
+  name: "Next Shore 10K",
+  distance: "10K",
+  date: "2027-04-03",
+  location: "Long Branch, New Jersey",
+  priority: "A race",
+  purpose: "test the next 10K ceiling without compromising health",
+};
+populateStarterPlan(browserRecord);
+assert.equal(browserRecord.athlete, "Aaron Greenwood");
+assert.ok(browserRecord.preRace.strategy.length >= 4);
+assert.match(browserRecord.preRace.guardrails, /next training block/i);
+assert.match(browserRecord.preRace.goalA, /A race/);
+const browserPre = renderBrowserReport(browserRecord, "pre", { css: "https://example.com/report.css", dashboard: "https://example.com/" });
+assert.match(browserPre, /Next Shore 10K/);
+assert.match(browserPre, /id="race-execution"/);
+assert.match(browserPre, /Race-morning readiness gate/);
+assert.match(browserPre, /test the next 10K ceiling/);
 
 const post = renderPostRaceReport(record);
 assert.match(post, /44:11\.6/);
@@ -115,6 +137,8 @@ const brielle = await fetch("http://127.0.0.1:4174/api/races/brielle-2026").then
 assert.match(studioHtml, /One race/i);
 assert.match(studioHtml, /Pre-race plan/);
 assert.match(studioHtml, /Post-race analysis/);
+assert.match(studioHtml, /Build Aaron’s starter plan/);
+assert.match(studioHtml, /Download report/);
 assert.ok(races.some((race) => race.slug === "brielle-2026"));
 assert.equal(races.length, 22);
 assert.equal(brielle.race.name, "Brielle Day Hill & Dale 10K");

@@ -2,6 +2,49 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.builder-callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 24px 0 34px;
+  padding: 28px 32px;
+  color: #fff;
+  background: linear-gradient(120deg, #102c34, #174b50);
+  border-left: 7px solid var(--orange);
+  box-shadow: 0 16px 42px rgba(16, 44, 52, .15);
+}
+
+.builder-callout span {
+  color: #f0bd67;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+.builder-callout h2 {
+  margin: 5px 0;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  line-height: 1.1;
+}
+
+.builder-callout p {
+  max-width: 760px;
+  margin: 0;
+  color: #d6e5e7;
+}
+
+.builder-callout a {
+  flex: 0 0 auto;
+  padding: 13px 17px;
+  color: #102c34;
+  background: #f0bd67;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.builder-callout a:hover { background: #fff0bd; }
+
 .section-heading h2,
 .index-heading h2 {
   max-width: 920px;
@@ -182,6 +225,7 @@
 
 @media (max-width: 700px) {
   .dashboard-stats { grid-template-columns: 1fr 1fr; }
+  .builder-callout { align-items: flex-start; flex-direction: column; padding: 26px; }
   .journey-story { grid-template-columns: 1fr; padding: 30px; }
   .progression-grid { grid-template-columns: 1fr; }
   .victory-grid,

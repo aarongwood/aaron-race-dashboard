@@ -13,17 +13,31 @@ The repository also contains Aaron’s permanent historical race archive: **22 c
 
 ## Open it from anywhere
 
-Use the private GitHub Codespace launcher:
+Open the live browser app:
+
+<https://aarongwood.github.io/aaron-race-dashboard/studio/>
+
+The public app is the everyday easy button. It runs without a server or login, builds Aaron-specific pre-race and post-race reports in the browser, saves drafts on the current device, and downloads both the finished HTML report and its reusable JSON race record. If an official race page blocks browser metadata access, the URL is retained and the app asks for the missing basics instead of guessing.
+
+Repository publishing remains an authenticated operation. To write a generated record and report directly into GitHub, use the private GitHub Codespace launcher:
 
 <https://codespaces.new/aarongwood/aaron-race-dashboard?quickstart=1>
 
-GitHub signs you in, creates the repository workspace, starts the Race Desk, and privately forwards port `4173`. Open that forwarded port and use the same Generate / Publish workflow. The public GitHub Pages Studio is intentionally read-only because a static page must not hold repository write credentials.
+GitHub signs you in and creates the repository workspace. Run `npm run studio`, open the forwarded `4173` port, and use the authenticated Publish control. The public app deliberately holds no repository credentials.
 
 For an always-on editor hosted on Arjuna behind Cloudflare Access, see [`deploy/README.md`](deploy/README.md). The supplied service binds only to `127.0.0.1`; do not expose the Node port directly.
 
 ## The easy-button workflow
 
-From this repository:
+In the live app:
+
+1. Press **New race**.
+2. Paste the official race URL and press **Pull race basics**, or enter the race name, date, distance and location.
+3. Press **Build starter plan**. This drafts the editorial frame, goal hierarchy, course-segment strategy, readiness rules, timeline, warm-up, fueling, hydration and equipment guardrails while preserving any fields you already wrote.
+4. Review or refine the plan, then press **Generate pre-race report**.
+5. Open the preview and download the report plus its JSON race record. The draft also remains in **Saved races** in that browser.
+
+To run the authenticated version from this repository:
 
 ```bash
 git pull --ff-only
@@ -35,8 +49,8 @@ Open `http://127.0.0.1:4173/studio/`.
 ### Before the race
 
 1. Press **New race**.
-2. Paste the official race URL and press **Pull race basics**. The importer uses public page metadata where available; review the result.
-3. Complete the pre-race form. Repeating rows use one pipe-delimited entry per line and show their format directly below the field.
+2. Add the official race page and core details.
+3. Press **Build starter plan**, then refine any race-specific evidence, targets or logistics.
 4. Press **Generate pre-race report** and review it.
 5. Type `PUBLISH` only when it is ready to go live.
 
@@ -63,6 +77,8 @@ Before results are entered, the current edition is the pre-race plan. Once the p
 ## What is automated
 
 - A public race-page importer reads common Event JSON-LD and page metadata to prefill race name, date, time, distance and location when exposed.
+- A browser-native Aaron starter plan adapts the goal hierarchy, execution segments, warm-up and fueling frame to the race distance and priority while enforcing health and next-block guardrails.
+- Public drafts persist locally, and one click exports both the complete HTML report and the canonical JSON needed for the same race’s post-race edition.
 - The fixed report templates assemble every required pre- and post-race section.
 - Placement percentiles are calculated from official place and field size.
 - The same race record carries goals and predictions into the post-race comparison.

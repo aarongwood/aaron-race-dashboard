@@ -1,9 +1,22 @@
+import {
+  browserRecordTemplate,
+  downloadText,
+  extractRaceBasics,
+  populateStarterPlan,
+  renderBrowserReport,
+} from "./browser-runtime.mjs";
+
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
 let record;
 let phase = "pre";
 let existingSlug = "";
+let latestReportHtml = "";
+let latestPreviewUrl = "";
+
+const localStudio = ["127.0.0.1", "localhost"].includes(location.hostname);
+const storageKey = "aaron-race-desk:v1";
 
 const arrayShapes = {
   contenders: ["name", "age", "best", "evidence", "threat"],
@@ -28,6 +41,71 @@ const escapeHtml = (value = "") => String(value).replaceAll("&", "&amp;").replac
 const lineArray = (value) => String(value || "").split("\n").map((line) => line.trim()).filter(Boolean);
 const parseRows = (value, shape) => lineArray(value).map((line) => Object.fromEntries(arrayShapes[shape].map((key, index) => [key, (line.split("|")[index] || "").trim()])));
 const formatRows = (value, shape) => (Array.isArray(value) ? value : []).map((row) => arrayShapes[shape].map((key) => row[key] || "").join(" | ")).join("\n");
+const clone = (value) => JSON.parse(JSON.stringify(value));
+
+function readSavedRecords() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    return saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveRecordToBrowser() {
+  if (!record.slug || record.slug === "race-name-year") throw new Error("Add the race name and date before saving this draft.");
+  const saved = readSavedRecords();
+  saved[record.slug] = clone(record);
+  localStorage.setItem(storageKey, JSON.stringify(saved));
+}
+
+function reportUrls() {
+  return {
+    css: new URL("../assets/report.css", location.href).href,
+    dashboard: new URL("../", location.href).href,
+  };
+}
+
+function clearPreview() {
+  if (latestPreviewUrl.startsWith("blob:")) URL.revokeObjectURL(latestPreviewUrl);
+  latestReportHtml = "";
+  latestPreviewUrl = "";
+  for (const selector of ["#preview-link", "#open-preview"]) {
+    const link = $(selector);
+    link.hidden = true;
+    link.removeAttribute("href");
+  }
+  $("#download-report").disabled = true;
+}
+
+function connectPreview(url, html = "") {
+  if (latestPreviewUrl.startsWith("blob:") && latestPreviewUrl !== url) URL.revokeObjectURL(latestPreviewUrl);
+  latestReportHtml = html;
+  latestPreviewUrl = url;
+  for (const selector of ["#preview-link", "#open-preview"]) {
+    const link = $(selector);
+    link.href = url;
+    link.hidden = false;
+  }
+  $("#download-report").disabled = false;
+}
+
+function createBrowserPreview(html) {
+  const url = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+  connectPreview(url, html);
+  return url;
+}
+
+function assignSlug() {
+  if (!record.slug || record.slug === "race-name-year") record.slug = slugify(`${record.race.name} ${String(record.race.date || "").slice(0, 4)}`);
+}
+
+function validateRaceBasics() {
+  const missing = [["name", "race name"], ["date", "date"], ["location", "location"]]
+    .filter(([key]) => !String(record.race[key] || "").trim())
+    .map(([, label]) => label);
+  if (missing.length) throw new Error(`Add the ${missing.join(", ")} before generating the report.`);
+}
 
 function show(message, ok = true) {
   const status = $("#status");
@@ -89,6 +167,7 @@ function bindFields() {
     };
   });
   $("#race-url").value = record.race.registrationUrl || "";
+  $("#race-url").oninput = (event) => { record.race.registrationUrl = event.target.value.trim(); };
 }
 
 function renderPhase() {
@@ -103,46 +182,98 @@ function renderPhase() {
 }
 
 async function loadTemplate() {
-  record = await fetch("/api/template").then((response) => response.json());
+  record = localStudio ? await fetch("/api/template").then((response) => response.json()) : browserRecordTemplate();
   existingSlug = "";
   $("#race-picker").value = "";
+  clearPreview();
   renderPhase();
   show("New race ready. Start with the race page, name, date and location.");
 }
 
 async function loadRace(slug) {
-  const response = await fetch(`/api/races/${encodeURIComponent(slug)}`);
-  const result = await response.json();
-  if (!response.ok) throw new Error(result.error);
-  record = result;
+  let result;
+  if (localStudio) {
+    const response = await fetch(`/api/races/${encodeURIComponent(slug)}`);
+    result = await response.json();
+    if (!response.ok) throw new Error(result.error);
+  } else {
+    result = readSavedRecords()[slug];
+    if (!result) {
+      const response = await fetch(new URL(`../races/${encodeURIComponent(slug)}.json`, location.href));
+      if (!response.ok) throw new Error(`Could not load ${slug}.`);
+      result = await response.json();
+    }
+  }
+  record = clone(result);
   existingSlug = record.slug;
   $("#race-picker").value = slug;
+  clearPreview();
   renderPhase();
   show(`${record.race.name} loaded.\nPre-race: ${record.preRace.status}. Post-race: ${record.postRace.status}.`);
 }
 
 async function refreshRaces() {
-  const races = await fetch("/api/races").then((response) => response.json());
+  let races = [];
+  if (localStudio) {
+    races = await fetch("/api/races").then((response) => response.json());
+  } else {
+    try {
+      const response = await fetch(new URL("../reports/data.json", location.href));
+      if (response.ok) races = (await response.json()).races || [];
+    } catch { /* Browser-saved drafts still remain available. */ }
+    const indexed = new Map(races.map((item) => [item.slug, {
+      slug: item.slug,
+      name: item.race?.name || item.name,
+      date: item.race?.date || item.date,
+      saved: false,
+    }]));
+    for (const [slug, item] of Object.entries(readSavedRecords())) indexed.set(slug, {
+      slug,
+      name: item.race?.name || slug,
+      date: item.race?.date || "",
+      saved: true,
+    });
+    races = [...indexed.values()].sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  }
   const picker = $("#race-picker");
-  picker.innerHTML = '<option value="">New race</option>' + races.map((race) => `<option value="${escapeHtml(race.slug)}">${escapeHtml(race.date)} · ${escapeHtml(race.name)}</option>`).join("");
+  picker.innerHTML = '<option value="">New race</option>' + races.map((race) => {
+    const name = race.name || race.race?.name || race.slug;
+    const date = race.date || race.race?.date || "";
+    return `<option value="${escapeHtml(race.slug)}">${escapeHtml(date)} · ${escapeHtml(name)}${race.saved ? " · saved here" : ""}</option>`;
+  }).join("");
 }
 
 $("#race-form").onsubmit = async (event) => {
   event.preventDefault();
   try {
-    if (!record.slug || record.slug === "race-name-year") record.slug = slugify(`${record.race.name} ${String(record.race.date || "").slice(0,4)}`);
+    validateRaceBasics();
+    assignSlug();
+    if (phase === "pre") populateStarterPlan(record);
     record.preRace.status = record.preRace.status === "draft" && phase === "pre" ? "final" : record.preRace.status;
     if (phase === "post") {
+      if (!String(record.postRace.officialTime || "").trim()) throw new Error("Add the official time before generating the post-race report.");
       record.postRace.status = "final";
       record.postRace.analyzedAt ||= new Date().toISOString().slice(0, 10);
+    }
+    if (!localStudio) {
+      show(`Building the ${phase}-race edition…`);
+      const html = renderBrowserReport(record, phase, reportUrls());
+      saveRecordToBrowser();
+      const previewUrl = createBrowserPreview(html);
+      window.open(previewUrl, "_blank", "noopener");
+      existingSlug = record.slug;
+      renderPhase();
+      await refreshRaces();
+      $("#race-picker").value = record.slug;
+      show(`Built the ${phase}-race edition and saved the race on this device.\nPreview it now, or download the report and its permanent JSON record.`);
+      return;
     }
     show("Validating the record and building both editions…");
     const response = await fetch("/api/generate", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ record, phase }) });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error);
     existingSlug = record.slug;
-    $("#preview-link").href = result.previewUrl;
-    $("#preview-link").hidden = false;
+    connectPreview(result.previewUrl);
     show(`Built the ${phase}-race edition.\nSaved: ${result.recordPath}\nMain race page now shows: ${result.currentEdition}.`);
     await refreshRaces();
     $("#race-picker").value = record.slug;
@@ -154,7 +285,25 @@ $("#import-race").onclick = async () => {
   try {
     const url = $("#race-url").value.trim();
     if (!url) throw new Error("Paste the official race URL first.");
+    record.race.registrationUrl = url;
     show("Reading public race-page metadata…");
+    if (!localStudio) {
+      try {
+        const response = await fetch(url, { mode: "cors", redirect: "follow" });
+        if (!response.ok) throw new Error(`The race page returned ${response.status}.`);
+        const basics = extractRaceBasics(await response.text(), url);
+        for (const [key, next] of Object.entries(basics)) {
+          if (next && (!record.race[key] || ["Race Name", "City, State"].includes(record.race[key]))) record.race[key] = next;
+        }
+        if (!existingSlug) record.slug = slugify(`${record.race.name} ${String(record.race.date || "").slice(0, 4)}`);
+        renderPhase();
+        show(`Pulled the metadata the official page exposed. Review the race basics, then press Build starter plan.\nSource: ${url}`);
+      } catch {
+        renderPhase();
+        show("The official URL is saved, but that race site blocks direct browser import. Enter or confirm the race basics manually, then press Build starter plan. No information was guessed.");
+      }
+      return;
+    }
     const response = await fetch("/api/import-race", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ url }) });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error);
@@ -168,6 +317,7 @@ $("#import-race").onclick = async () => {
 
 $("#publish").onclick = async () => {
   try {
+    if (!localStudio) throw new Error("Use the authenticated publisher link after downloading your report and race record.");
     if (!existingSlug) throw new Error("Generate the report before publishing.");
     show("Running the final build, scoped commit and push…");
     const response = await fetch("/api/publish", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ slug: record.slug, phase, confirm: $("#confirm").value.trim() }) });
@@ -177,22 +327,62 @@ $("#publish").onclick = async () => {
   } catch (error) { show(error.message, false); }
 };
 
+$("#build-starter").onclick = () => {
+  try {
+    populateStarterPlan(record);
+    renderPhase();
+    show("Aaron’s starter plan is built. Review the goals, strategy, readiness gate and logistics; then generate the full report.");
+  } catch (error) { show(error.message, false); }
+};
+
+$("#save-draft").onclick = async () => {
+  try {
+    validateRaceBasics();
+    assignSlug();
+    saveRecordToBrowser();
+    existingSlug = record.slug;
+    await refreshRaces();
+    $("#race-picker").value = record.slug;
+    show("Draft saved on this device. It will appear in the Saved races menu when you return in this browser.");
+  } catch (error) { show(error.message, false); }
+};
+
+$("#download-report").onclick = async () => {
+  try {
+    let html = latestReportHtml;
+    if (!html && latestPreviewUrl) {
+      const response = await fetch(latestPreviewUrl);
+      if (!response.ok) throw new Error("Could not read the generated preview.");
+      html = await response.text();
+    }
+    if (!html) throw new Error("Generate the report before downloading it.");
+    downloadText(`${record.slug}-${phase}-race-report.html`, html, "text/html");
+  } catch (error) { show(error.message, false); }
+};
+
+$("#download-record").onclick = () => {
+  try {
+    assignSlug();
+    if (!record.slug) throw new Error("Add the race name and date before downloading the record.");
+    downloadText(`${record.slug || "race-record"}.json`, `${JSON.stringify(record, null, 2)}\n`, "application/json");
+  } catch (error) { show(error.message, false); }
+};
+
 $("#new-race").onclick = () => loadTemplate().catch((error) => show(error.message, false));
 $("#load-brielle").onclick = () => loadRace("brielle-2026").catch((error) => show(error.message, false));
 $("#race-picker").onchange = (event) => event.target.value ? loadRace(event.target.value).catch((error) => show(error.message, false)) : loadTemplate().catch((error) => show(error.message, false));
-$$(".phase-tabs button").forEach((button) => button.onclick = () => { phase = button.dataset.phase; renderPhase(); });
+$$(".phase-tabs button").forEach((button) => button.onclick = () => { phase = button.dataset.phase; clearPreview(); renderPhase(); });
 
 $("#show-json").onclick = () => { $("#record-json").value = JSON.stringify(record, null, 2); $("#json-dialog").showModal(); };
 $("#apply-json").onclick = (event) => {
-  try { record = JSON.parse($("#record-json").value); existingSlug = record.slug === "race-name-year" ? "" : record.slug; renderPhase(); }
+  try { record = JSON.parse($("#record-json").value); existingSlug = record.slug === "race-name-year" ? "" : record.slug; clearPreview(); renderPhase(); }
   catch (error) { event.preventDefault(); show(`JSON not applied: ${error.message}`, false); }
 };
 
-const localStudio = ["127.0.0.1", "localhost"].includes(location.hostname);
+document.body.classList.add(localStudio ? "local-mode" : "public-mode");
 if (!localStudio) {
-  $$('button,input,textarea,select').forEach((control) => control.disabled = true);
-  show("This public page is a safe read-only shell. Press Open private Race Desk, sign in to GitHub, and use the forwarded 4173 port to edit and publish from anywhere.", false);
-} else {
-  await refreshRaces();
-  await loadTemplate();
+  $("#finish-title").textContent = "Preview and download";
+  $("#finish-copy").textContent = "Generate the report first. Then open the full report, download the finished HTML, and download the JSON record that carries this race into its post-race edition.";
 }
+await refreshRaces();
+await loadTemplate();

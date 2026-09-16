@@ -6,12 +6,13 @@
   <title>Aaron’s Race Desk</title>
   <link rel="stylesheet" href="studio.css">
   <link rel="stylesheet" href="remote.css">
+  <link rel="stylesheet" href="public-app.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="wordmark" href="../reports/">AARON’S RUN COACH <span>/ RACE DESK</span></a>
+    <a class="wordmark" href="../">AARON’S RUN COACH <span>/ RACE REPORT BUILDER</span></a>
     <div class="top-actions">
-      <a class="button primary remote-launch" href="https://codespaces.new/aarongwood/aaron-race-dashboard?quickstart=1" target="_blank" rel="noopener">Open private Race Desk ↗</a>
+      <a class="button quiet" href="../">Master dashboard</a>
       <button class="button quiet" id="new-race">+ New race</button>
       <button class="button quiet" id="load-brielle">Brielle example</button>
     </div>
@@ -20,11 +21,11 @@
     <section class="intro">
       <p class="eyebrow">ONE RACE · TWO EDITIONS · ONE PERMANENT RECORD</p>
       <h1>Put the race in.<br><em>Get the plan and the diagnosis out.</em></h1>
-      <p class="deck">Enter an upcoming race once. Build the complete pre-race report. Come back after the finish, add the evidence, and build the matching performance report without starting over.</p>
+      <p class="deck">Enter an upcoming race once. Build the complete pre-race report right here. Come back after the finish, add the evidence, and build the matching performance report without starting over.</p>
       <div class="phase-map" aria-label="Workflow">
-        <span class="active">1 · Race</span><i>→</i><span>2 · Pre-race plan</span><i>→</i><span>3 · Post-race analysis</span><i>→</i><span>4 · Publish</span>
+        <span class="active">1 · Race</span><i>→</i><span>2 · Build starter plan</span><i>→</i><span>3 · Preview / download</span><i>→</i><span>4 · Add results later</span>
       </div>
-      <p class="remote-note"><strong>Anywhere access:</strong> use <em>Open private Race Desk</em>, sign in to GitHub, and open the forwarded <code>4173</code> port. Your editor and publisher then run inside your authenticated repository.</p>
+      <p class="remote-note"><strong>This is the app.</strong> It runs entirely in your browser, saves drafts on this device, and downloads a finished HTML report plus its permanent JSON record. Nothing is sent anywhere until you choose to publish it.</p>
     </section>
 
     <div class="workspace">
@@ -79,21 +80,35 @@
             </div></details>
           </section>
 
+          <section class="starter-card">
+            <div><p class="step">EASY BUTTON</p><h2>Build Aaron’s starter plan</h2><p>Use the race distance, priority, course and purpose to draft the editorial frame, goal hierarchy, segment strategy, readiness rules, logistics, warm-up, fueling guardrails and source list. Everything remains editable.</p></div>
+            <button class="button primary" id="build-starter" type="button">Build starter plan</button>
+          </section>
+
           <div id="phase-form"></div>
 
           <section class="action-card">
             <div><p class="step" id="action-step">STEP 2</p><h2 id="action-title">Generate the pre-race report</h2><p id="action-copy">This saves the race record, validates the required evidence, and creates the complete pre-race edition.</p></div>
             <div class="action-buttons">
               <button class="button primary" id="generate" type="submit">Generate pre-race report</button>
+              <button class="button secondary" id="save-draft" type="button">Save draft</button>
               <button class="button quiet" id="show-json" type="button">Advanced: view record</button>
             </div>
           </section>
         </form>
 
-        <section class="publish-card">
-          <div><p class="step">FINAL STEP</p><h2>Publish after review</h2><p>Publishing commits only this race record, its generated editions, its current main page, and the archive.</p></div>
-          <label>Safety confirmation<input id="confirm" placeholder="Type PUBLISH"></label>
-          <button class="button publish" id="publish">Publish current race</button>
+        <section class="publish-card" id="finish-card">
+          <div><p class="step">TAKE THE REPORT WITH YOU</p><h2 id="finish-title">Preview, download or publish</h2><p id="finish-copy">Generate the report first. You can then open it, download the finished HTML, and download the JSON record that carries the same race into its post-race edition.</p></div>
+          <div class="export-actions">
+            <a id="open-preview" class="button secondary" target="_blank" hidden>Open preview</a>
+            <button class="button primary" id="download-report" type="button" disabled>Download report</button>
+            <button class="button quiet" id="download-record" type="button">Download race record</button>
+          </div>
+          <div class="authenticated-publish" id="authenticated-publish">
+            <label id="confirm-label">Safety confirmation<input id="confirm" placeholder="Type PUBLISH"></label>
+            <button class="button publish" id="publish">Publish current race</button>
+          </div>
+          <a class="authenticated-link" id="authenticated-link" href="https://codespaces.new/aarongwood/aaron-race-dashboard?quickstart=1" target="_blank" rel="noopener">Open authenticated publisher ↗</a>
         </section>
       </section>
     </div>
