@@ -1,0 +1,119 @@
+:root {
+  color-scheme: light;
+  --ink: #17323a;
+  --muted: #5d737a;
+  --bg: #f4f7f7;
+  --panel: #ffffff;
+  --line: #d4e0e2;
+  --teal: #087f83;
+  --orange: #cf552f;
+  --gold: #9d6816;
+}
+
+body {
+  background:
+    radial-gradient(circle at 72% -10%, #d8ecec 0, transparent 36%),
+    linear-gradient(180deg, #fbfcfc 0, var(--bg) 42%, #eef3f3 100%);
+  color: var(--ink);
+}
+
+.topbar {
+  background: rgb(255 255 255 / 92%);
+  border-bottom-color: var(--line);
+  box-shadow: 0 8px 28px rgb(23 50 58 / 7%);
+}
+
+.wordmark { color: var(--ink); }
+.deck { color: #405b63; }
+.phase-map { color: #667b82; }
+.phase-map span.active { color: #fff; }
+
+.rail-card,
+.form-card,
+.action-card,
+.publish-card {
+  background: rgb(255 255 255 / 96%);
+  border-color: var(--line);
+  box-shadow: 0 16px 46px rgb(23 50 58 / 9%);
+}
+
+.phase-tabs button {
+  color: var(--ink);
+  background: #f5f8f8;
+  border-color: var(--line);
+}
+
+.phase-tabs button.active {
+  background: #e8f4f3;
+  border-color: var(--teal);
+  box-shadow: inset 4px 0 var(--teal);
+}
+
+.checklist li { color: #49636b; }
+.status.ok { color: #176c52; }
+.status.error { color: #a23f38; }
+
+label { color: #29474f; }
+
+input,
+textarea,
+select {
+  color: var(--ink);
+  background: #fff;
+  border-color: #afc2c6;
+  box-shadow: inset 0 1px 2px rgb(23 50 58 / 4%);
+}
+
+input::placeholder,
+textarea::placeholder { color: #82959a; }
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgb(8 127 131 / 14%);
+}
+
+.button { background: #315861; }
+.button.primary { color: #fff; background: var(--teal); }
+.button.secondary { color: #fff; background: #3d6871; }
+.button.quiet {
+  color: #23464e;
+  background: #edf3f4;
+  border: 1px solid #d5e1e3;
+}
+.button.publish { background: var(--orange); }
+
+summary { color: #38545c; }
+.repeat-help { color: #6b8187; }
+.publish-card { border-color: #dfb7aa; }
+
+.starter-card {
+  background: linear-gradient(135deg, #f0f8f7, #e3f1f0);
+  border-color: #7eb8b7;
+  box-shadow: 0 16px 46px rgb(23 50 58 / 9%);
+}
+
+.starter-card p { color: #48636a; }
+
+.remote-note {
+  color: #405c63;
+  background: #e9f3f3;
+  border-left-color: var(--teal);
+}
+
+.remote-note code { color: var(--ink); }
+
+dialog {
+  color: var(--ink);
+  background: #fff;
+  border-color: var(--line);
+  box-shadow: 0 24px 70px rgb(23 50 58 / 20%);
+}
+
+.dialog-head button { color: var(--ink); }
+dialog::backdrop { background: rgb(16 44 52 / 45%); }
+
+@media (max-width: 650px) {
+  .topbar { background: rgb(255 255 255 / 96%); }
+}
