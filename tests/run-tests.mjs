@@ -129,6 +129,7 @@ assert.match(archive, /AGE-GROUP WINS<\/span><strong>6<\/strong>/);
 assert.match(archive, /AGE-GROUP PODIUMS<\/span><strong>14<\/strong>/);
 assert.match(archive, /filter-distance/);
 const publicData = JSON.parse(await fs.readFile(path.join(paths.reports, "data.json"), "utf8"));
+assert.equal(publicData.generatedAt, "2026-09-30T00:00:00.000Z");
 assert.equal(publicData.stats.completed, 22);
 assert.equal(publicData.races.length, 27);
 assert.equal(publicData.races.filter((race) => race.postStatus === "pending").length, 5);
