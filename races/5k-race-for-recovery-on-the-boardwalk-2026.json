@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 2,
+  "slug": "5k-race-for-recovery-on-the-boardwalk-2026",
+  "athlete": "Aaron Greenwood",
+  "race": {
+    "name": "5K Race for Recovery on the Boardwalk",
+    "distance": "5K",
+    "date": "2026-10-24",
+    "startTime": "9:30 AM",
+    "timezone": "America/New_York",
+    "location": "Ocean Grove, NJ",
+    "venue": "Ocean Grove Boardwalk; event hub at the Auditorium Pavilion",
+    "priority": "",
+    "purpose": "Registered future race; purpose and target are not yet recorded",
+    "courseType": "Boardwalk road race",
+    "surface": "Boardwalk",
+    "certification": "Unverified",
+    "registrationUrl": "https://runsignup.com/Race/NJ/OceanGrove/JerseyShoreRescueMission5K",
+    "resultsUrl": "",
+    "courseUrl": "",
+    "weatherUrl": ""
+  },
+  "preRace": {
+    "status": "draft",
+    "preparedAt": "2026-09-30",
+    "headline": "Race for Recovery.",
+    "subhead": "Know the course. Run your race.",
+    "deck": "A confirmed-race starter record for the Ocean Grove 5K, ready for Aaron's target, field review and final execution plan.",
+    "verdict": "",
+    "targetTime": "",
+    "targetPace": "",
+    "targetPower": "",
+    "goalA": "Set the race purpose and target after the current race block is reviewed.",
+    "goalB": "Run progressively, keep mechanics organized and compete intelligently over the final third.",
+    "goalC": "Finish healthy and protect the next training block.",
+    "outlook": "Registration is confirmed for the 5K Race for Recovery on the Boardwalk. The recorded race source does not yet include a goal, priority or planned shoe; those fields remain intentionally open.",
+    "guardrails": "Pain that changes gait, sharp or escalating symptoms, illness, dizziness or an abnormal warm-up response override pace, power, cadence and competitive goals.",
+    "courseSummary": "The organizer places the 5K on the Ocean Grove boardwalk, with the event hub at the Auditorium Pavilion and the start/finish about two blocks away at the Boardwalk Pavilion. Verify wind and boardwalk conditions close to race day.",
+    "weather": "Add the final forecast 24–48 hours before the start. Adjust pace expectations before changing safe effort.",
+    "fieldSize": "",
+    "ageGroupSize": "",
+    "fieldRead": "No verified entry-list analysis has been added. Treat any participant list as a dated snapshot and race the athletes who actually start.",
+    "contenders": [],
+    "strategySummary": "Build from control to commitment. Verified terrain and conditions may change pace; effort and organized mechanics govern the plan.",
+    "strategy": [
+      {
+        "segment": "Start–mile 1",
+        "pace": "Slightly slower than final average",
+        "power": "",
+        "cue": "Settle breathing and mechanics before pressing into the boardwalk rhythm."
+      },
+      {
+        "segment": "Middle miles",
+        "pace": "Goal effort after target review",
+        "power": "",
+        "cue": "Run the cleanest line available and stay composed if wind changes the cost."
+      },
+      {
+        "segment": "Final mile",
+        "pace": "Progressive if Green",
+        "power": "",
+        "cue": "Increase commitment while form remains organized."
+      },
+      {
+        "segment": "Final 400 m",
+        "pace": "All available",
+        "power": "",
+        "cue": "Quick feet, relaxed shoulders and race through the line."
+      }
+    ],
+    "readinessGreen": "Normal gait and stairs, ordinary soreness only, stable energy and a warm-up that improves movement: race the supported plan.",
+    "readinessYellow": "Heavy legs, incomplete recovery or mild tightness with normal gait: reduce the target, extend the warm-up and reassess.",
+    "readinessRed": "Sharp or increasing pain, gait change, illness, dizziness, abnormal fatigue or worsening symptoms: do not race hard.",
+    "logistics": [
+      {
+        "time": "8:00 AM",
+        "item": "Check-in and registration open."
+      },
+      {
+        "time": "8:45 AM",
+        "item": "Organizer's suggested arrival target."
+      },
+      {
+        "time": "9:00 AM",
+        "item": "Kickoff celebration."
+      },
+      {
+        "time": "9:15 AM",
+        "item": "Kids Fun Run."
+      },
+      {
+        "time": "9:30 AM",
+        "item": "5K start."
+      },
+      {
+        "time": "10:30 AM",
+        "item": "Awards ceremony and giveaways."
+      }
+    ],
+    "bibPickup": "Race-day check-in opens at 8:00 AM. Have the registration confirmation QR code ready; the organizer can also look up the registration by name.",
+    "parking": "Parking is included. Use the organizer's final parking and directions page; the event hub is across from 21 Pilgrim Pathway.",
+    "arrival": "Target 8:30–8:45 AM so check-in, bathrooms and a short warm-up are not rushed.",
+    "warmup": "Easy running, mobility, activation and short progressive strides; finish warm, not tired.",
+    "shoes": "",
+    "fuel": "Use the familiar pre-race meal and optional practiced pre-start carbohydrate. In-race fuel is unnecessary for the 5K.",
+    "hydration": "Arrive normally hydrated, use practiced sodium and fluid choices, and adjust quantity to verified weather rather than forcing a fixed volume.",
+    "equipmentNotes": "Charge the watch, confirm data screens and auto-lap settings, pin the bib, and use only equipment already proven in training or racing.",
+    "sources": [
+      {
+        "label": "Owner-private Racing Schedule",
+        "url": "",
+        "note": "Registered status and confirmed date, distance and location from the authoritative race bridge."
+      },
+      {
+        "label": "Official RunSignup event page",
+        "url": "https://runsignup.com/Race/NJ/OceanGrove/JerseyShoreRescueMission5K",
+        "note": "date, 5K start, venue and event details"
+      },
+      {
+        "label": "Official schedule",
+        "url": "https://runsignup.com/Race/JerseyShoreRescueMission5K/Page/Schedule",
+        "note": "check-in, arrival, start and awards times"
+      }
+    ]
+  },
+  "postRace": {
+    "status": "pending",
+    "analyzedAt": "",
+    "headline": "",
+    "subhead": "",
+    "deck": "",
+    "verdict": "",
+    "officialTime": "",
+    "deviceTime": "",
+    "officialPace": "",
+    "bib": "",
+    "division": "Male 50–59",
+    "ageGroupPlace": "",
+    "ageGroupSize": "",
+    "overallPlace": "",
+    "overallSize": "",
+    "malePlace": "",
+    "maleSize": "",
+    "winningMargin": "",
+    "courseAscent": "",
+    "prImprovement": "",
+    "recordLabel": "",
+    "resultSummary": "",
+    "recordNote": "",
+    "resultQuote": "",
+    "fieldRead": "",
+    "competitors": [],
+    "executionSummary": "",
+    "splits": [],
+    "executionDiagnosis": "",
+    "avgHR": "",
+    "maxHR": "",
+    "avgPower": "",
+    "normPower": "",
+    "aerobicEffect": "",
+    "aerobicDiagnosis": "",
+    "cadence": "",
+    "strideLength": "",
+    "groundContact": "",
+    "verticalRatio": "",
+    "balance": "",
+    "closingCadence": "",
+    "closingStride": "",
+    "closingGroundContact": "",
+    "formDiagnosis": "",
+    "subjective": "",
+    "pain": "",
+    "shoes": "",
+    "whatWorked": [],
+    "opportunities": [],
+    "progression": [],
+    "progressionSummary": "",
+    "futureGoals": [],
+    "futureSummary": "",
+    "nextStep": "",
+    "sources": []
+  }
+}

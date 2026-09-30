@@ -63,7 +63,16 @@ template.postRace.status = "final";
 assert.ok(validateRecord(template, "post").some((error) => error.includes("resultSummary")));
 
 const historyFiles = await listRecords();
-assert.equal(historyFiles.length, 22, "canonical archive must contain all 22 completed races through Brielle");
+assert.equal(historyFiles.length, 27, "canonical records must contain 22 completed and 5 confirmed future races");
+const { record: chicago } = await readRecord("races/bank-of-america-chicago-marathon-2026.json");
+assert.equal(chicago.race.date, "2026-10-11");
+assert.equal(chicago.race.priority, "A race");
+assert.equal(chicago.preRace.targetTime, "Under 4:00");
+assert.equal(chicago.preRace.shoes, "ASICS Metaspeed Sky Tokyo");
+assert.equal(chicago.preRace.status, "draft");
+assert.equal(chicago.postRace.status, "pending");
+assert.equal(validateRecord(chicago, "pre").length, 0);
+assert.ok(!historyFiles.some((file) => file.endsWith("la-jolla-half-marathon-2027.json")), "planned but unconfirmed La Jolla must not be preloaded");
 const { record: oceanGate } = await readRecord("races/ocean-gate-5k-2025.json");
 assert.equal(oceanGate.preRace.status, "not-preserved");
 assert.equal(oceanGate.evidence.level, "official");
@@ -86,7 +95,7 @@ assert.match(historical, /What followed/);
 assert.doesNotMatch(historical, /Pre-race plan<\/a>/);
 
 const built = await buildAll();
-assert.equal(built.built.length, 22);
+assert.equal(built.built.length, 27);
 for (const file of [built.archive, path.join(paths.reports, "brielle-2026", "index.html"), path.join(paths.reports, "brielle-2026", "pre-race", "index.html"), path.join(paths.reports, "brielle-2026", "post-race", "index.html")]) {
   const stat = await fs.stat(file);
   assert.ok(stat.size > 600, `${file} should be a substantial HTML document`);
@@ -121,7 +130,8 @@ assert.match(archive, /AGE-GROUP PODIUMS<\/span><strong>14<\/strong>/);
 assert.match(archive, /filter-distance/);
 const publicData = JSON.parse(await fs.readFile(path.join(paths.reports, "data.json"), "utf8"));
 assert.equal(publicData.stats.completed, 22);
-assert.equal(publicData.races.length, 22);
+assert.equal(publicData.races.length, 27);
+assert.equal(publicData.races.filter((race) => race.postStatus === "pending").length, 5);
 
 process.env.RACE_REPORT_PORT = "4174";
 const { importBasics, server } = await import("../studio-server.mjs");
@@ -140,7 +150,9 @@ assert.match(studioHtml, /Post-race analysis/);
 assert.match(studioHtml, /Build Aaron’s starter plan/);
 assert.match(studioHtml, /Download report/);
 assert.ok(races.some((race) => race.slug === "brielle-2026"));
-assert.equal(races.length, 22);
+assert.equal(races.length, 27);
+assert.equal(races[0].slug, "saucony-philly-love-run-half-marathon-2027");
+assert.ok(races.some((race) => race.slug === "bank-of-america-chicago-marathon-2026"));
 assert.equal(brielle.race.name, "Brielle Day Hill & Dale 10K");
 const health = await fetch("http://127.0.0.1:4174/api/health").then((response) => response.json());
 assert.equal(health.ok, true);

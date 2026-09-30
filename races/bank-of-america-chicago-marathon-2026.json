@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 2,
+  "slug": "bank-of-america-chicago-marathon-2026",
+  "athlete": "Aaron Greenwood",
+  "race": {
+    "name": "Bank of America Chicago Marathon",
+    "distance": "Marathon",
+    "date": "2026-10-11",
+    "startTime": "",
+    "timezone": "America/Chicago",
+    "location": "Chicago, IL",
+    "venue": "Grant Park; start at Columbus Drive and Monroe Drive",
+    "priority": "A race",
+    "purpose": "finish under 4:00 while executing a controlled, healthy marathon",
+    "courseType": "Flat, fast urban road loop",
+    "surface": "Paved",
+    "certification": "Official marathon; certification number not recorded",
+    "registrationUrl": "https://www.chicagomarathon.com/",
+    "resultsUrl": "",
+    "courseUrl": "https://www.chicagomarathon.com/event-info/participant-information/course/",
+    "weatherUrl": ""
+  },
+  "preRace": {
+    "status": "draft",
+    "preparedAt": "2026-09-30",
+    "headline": "Chicago.",
+    "subhead": "Earned, not borrowed.",
+    "deck": "The working Chicago Marathon plan: the recorded goal hierarchy, official race-week logistics, controlled execution, practiced fueling and health guardrails.",
+    "verdict": "**Sub-4:00 is the recorded primary objective; 3:45 remains a stretch, not an automatic prescription.** The day is protected by a controlled opening, exact fueling and an honest final 10K.",
+    "targetTime": "Under 4:00",
+    "targetPace": "",
+    "targetPower": "",
+    "goalA": "Finish under 4:00 while keeping the opening controlled and fueling on schedule.",
+    "goalB": "Run the strongest sustainable marathon supported by race-day readiness; 3:45 is a recorded stretch only if the final review explicitly supports it.",
+    "goalC": "Finish healthy and protect the post-race recovery block.",
+    "outlook": "Chicago is the registered A race and main 2026 target. The owner-private race source records a sub-4:00 primary goal, a 3:45 stretch goal and ASICS Metaspeed Sky Tokyo as the selected race shoe. The athlete-specific wave, corral and start time are not yet recorded here and must come from the final bib assignment.",
+    "guardrails": "Do not bank time early or turn the 3:45 stretch into an automatic prescription. Pain that changes gait, sharp or escalating symptoms, illness, dizziness or an abnormal warm-up response override time, power and competitive goals.",
+    "courseSummary": "The official course starts and finishes in Grant Park, loops through 29 Chicago neighborhoods and is described by the organizer as flat and fast. Twenty aid stations are spaced roughly one to two miles apart. Official Maurten Gel 100 depots are planned near miles 12.4 and 18.1; the personal fueling plan should not depend on those stations alone.",
+    "weather": "Add the final forecast 24–48 hours before the start. Adjust pace expectations before changing safe effort.",
+    "fieldSize": "",
+    "ageGroupSize": "",
+    "fieldRead": "No athlete-specific entry or corral analysis has been added. Chicago is a mass-participation race; execution should be governed by Aaron's plan, crowd flow, verified conditions and the assigned corral rather than early position.",
+    "contenders": [],
+    "strategySummary": "The marathon must feel deliberately controlled through 10K, economical to halfway, exact through mile 20 and effort-led only in the final 10K. Do not borrow time from the final hour.",
+    "strategy": [
+      {
+        "segment": "Start–10K",
+        "pace": "Deliberately conservative",
+        "power": "",
+        "cue": "Let the crowd go; settle breathing, mechanics and fueling before chasing the clock."
+      },
+      {
+        "segment": "10K–half",
+        "pace": "Recorded goal effort only",
+        "power": "",
+        "cue": "Stay economical, run clean lines and take fuel exactly on schedule."
+      },
+      {
+        "segment": "Half–20 miles",
+        "pace": "Hold planned effort",
+        "power": "",
+        "cue": "Protect posture and quiet feet; solve one mile at a time."
+      },
+      {
+        "segment": "Final 10K",
+        "pace": "Effort-led; progress only if Green",
+        "power": "",
+        "cue": "Race the final hour instead of paying back an aggressive opening."
+      }
+    ],
+    "readinessGreen": "Normal gait and stairs, ordinary soreness only, stable energy and a warm-up that improves movement: race the supported plan.",
+    "readinessYellow": "Heavy legs, incomplete recovery or mild tightness with normal gait: reduce the target, extend the warm-up and reassess.",
+    "readinessRed": "Sharp or increasing pain, gait change, illness, dizziness, abnormal fatigue or worsening symptoms: do not race hard.",
+    "logistics": [
+      {
+        "time": "Thu Oct 8 · 10:00 AM–6:00 PM",
+        "item": "First official Abbott Health & Fitness Expo window at McCormick Place."
+      },
+      {
+        "time": "Fri Oct 9 · 9:00 AM–6:00 PM",
+        "item": "Official Expo and personal packet-pickup window."
+      },
+      {
+        "time": "Sat Oct 10 · 9:00 AM–6:00 PM",
+        "item": "Final official Expo and personal packet-pickup window."
+      },
+      {
+        "time": "5:30 AM",
+        "item": "Grant Park, gear check and start corrals open."
+      },
+      {
+        "time": "7:20 / 7:45 / 8:10 AM",
+        "item": "Official Wave 1 / 2 / 3 corral closure times; follow the final bib assignment."
+      },
+      {
+        "time": "7:35 / 8:00 / 8:35 AM",
+        "item": "Official Wave 1 / 2 / 3 starts; Aaron's assigned wave remains to be recorded."
+      }
+    ],
+    "bibPickup": "Aaron must collect his own packet and timing device at the Abbott Health & Fitness Expo at McCormick Place, with government-issued photo ID. Expo hours: Thu Oct 8, 10 AM–6 PM; Fri Oct 9, 9 AM–6 PM; Sat Oct 10, 9 AM–6 PM.",
+    "parking": "The organizer strongly recommends public transportation. CTA serves Grant Park; road closures and congestion make race-morning driving a secondary option.",
+    "arrival": "Enter Grant Park early enough for security, gear check, bathrooms and the assigned corral closure. Final arrival time must be set from the athlete-specific bib and wave assignment.",
+    "warmup": "Use the familiar breakfast, bathroom timing and brief comfortable mobility rehearsed in training. Avoid a bonus running warm-up.",
+    "shoes": "ASICS Metaspeed Sky Tokyo",
+    "fuel": "Working practiced plan: Maurten Gel 160 at approximately 0:20, 1:00, 1:40, 2:20 and 3:00 as tolerated; bring a spare and log intake. Final timing remains subject to the taper review and race-day tolerance.",
+    "hydration": "Sip to thirst and plan refills. Prior trial ranges were 16–24 oz fluid and 400–700 mg sodium per hour—not quotas. Adjust for verified weather, sweat and tolerance; count drink carbohydrate and sodium.",
+    "equipmentNotes": "Use the selected ASICS Metaspeed Sky Tokyo only if the final readiness check remains Green. Charge the watch, confirm marathon screens, pack bib and photo ID, and follow the official corral assignment rather than the old calendar placeholder.",
+    "sources": [
+      {
+        "label": "Owner-private Racing Schedule",
+        "url": "",
+        "note": "Registered A race, under-4:00 primary goal, 3:45 stretch goal and selected Metaspeed Sky Tokyo; last verified Sep 21, 2026."
+      },
+      {
+        "label": "Official Chicago Marathon participant information",
+        "url": "https://www.chicagomarathon.com/event-info/participant-information/",
+        "note": "race-week schedule, wave times and participant logistics"
+      },
+      {
+        "label": "Official event FAQ",
+        "url": "https://www.chicagomarathon.com/event-info/event-faqs/",
+        "note": "date, packet-pickup requirement, start/finish and time limit"
+      },
+      {
+        "label": "Official course page",
+        "url": "https://www.chicagomarathon.com/event-info/participant-information/course/",
+        "note": "course character, aid stations and on-course fuel"
+      },
+      {
+        "label": "Official transportation guidance",
+        "url": "https://www.chicagomarathon.com/event-info/transportation-parking/",
+        "note": "CTA and parking guidance"
+      }
+    ]
+  },
+  "postRace": {
+    "status": "pending",
+    "analyzedAt": "",
+    "headline": "",
+    "subhead": "",
+    "deck": "",
+    "verdict": "",
+    "officialTime": "",
+    "deviceTime": "",
+    "officialPace": "",
+    "bib": "",
+    "division": "Male 50–59",
+    "ageGroupPlace": "",
+    "ageGroupSize": "",
+    "overallPlace": "",
+    "overallSize": "",
+    "malePlace": "",
+    "maleSize": "",
+    "winningMargin": "",
+    "courseAscent": "",
+    "prImprovement": "",
+    "recordLabel": "",
+    "resultSummary": "",
+    "recordNote": "",
+    "resultQuote": "",
+    "fieldRead": "",
+    "competitors": [],
+    "executionSummary": "",
+    "splits": [],
+    "executionDiagnosis": "",
+    "avgHR": "",
+    "maxHR": "",
+    "avgPower": "",
+    "normPower": "",
+    "aerobicEffect": "",
+    "aerobicDiagnosis": "",
+    "cadence": "",
+    "strideLength": "",
+    "groundContact": "",
+    "verticalRatio": "",
+    "balance": "",
+    "closingCadence": "",
+    "closingStride": "",
+    "closingGroundContact": "",
+    "formDiagnosis": "",
+    "subjective": "",
+    "pain": "",
+    "shoes": "",
+    "whatWorked": [],
+    "opportunities": [],
+    "progression": [],
+    "progressionSummary": "",
+    "futureGoals": [],
+    "futureSummary": "",
+    "nextStep": "",
+    "sources": []
+  }
+}

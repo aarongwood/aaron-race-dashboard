@@ -233,14 +233,24 @@ async function refreshRaces() {
       date: item.race?.date || "",
       saved: true,
     });
-    races = [...indexed.values()].sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    races = [...indexed.values()];
   }
+  const today = new Date().toISOString().slice(0, 10);
+  races.sort((a, b) => {
+    const aDate = String(a.date || "");
+    const bDate = String(b.date || "");
+    const aUpcoming = aDate >= today;
+    const bUpcoming = bDate >= today;
+    if (aUpcoming !== bUpcoming) return aUpcoming ? -1 : 1;
+    return aUpcoming ? aDate.localeCompare(bDate) : bDate.localeCompare(aDate);
+  });
   const picker = $("#race-picker");
   picker.innerHTML = '<option value="">New race</option>' + races.map((race) => {
     const name = race.name || race.race?.name || race.slug;
     const date = race.date || race.race?.date || "";
     return `<option value="${escapeHtml(race.slug)}">${escapeHtml(date)} · ${escapeHtml(name)}${race.saved ? " · saved here" : ""}</option>`;
   }).join("");
+  return races;
 }
 
 $("#race-form").onsubmit = async (event) => {
@@ -384,5 +394,8 @@ if (!localStudio) {
   $("#finish-title").textContent = "Preview and download";
   $("#finish-copy").textContent = "Generate the report first. Then open the full report, download the finished HTML, and download the JSON record that carries this race into its post-race edition.";
 }
-await refreshRaces();
-await loadTemplate();
+const availableRaces = await refreshRaces();
+const today = new Date().toISOString().slice(0, 10);
+const nextRace = availableRaces.find((race) => String(race.date || "") >= today);
+if (nextRace) await loadRace(nextRace.slug);
+else await loadTemplate();

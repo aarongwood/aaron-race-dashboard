@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 2,
+  "slug": "navesink-challenge-12k-2026",
+  "athlete": "Aaron Greenwood",
+  "race": {
+    "name": "Navesink Challenge 12K",
+    "distance": "12K",
+    "date": "2026-11-29",
+    "startTime": "10:00 AM",
+    "timezone": "America/New_York",
+    "location": "Middletown, NJ",
+    "venue": "Bodman Park, 120 Market Street",
+    "priority": "",
+    "purpose": "Registered future race; purpose and target are not yet recorded",
+    "courseType": "Road",
+    "surface": "Paved",
+    "certification": "Unverified",
+    "registrationUrl": "https://runsignup.com/Race/NJ/Middletown/NavesinkChallenge",
+    "resultsUrl": "",
+    "courseUrl": "https://runsignup.com/Race/Info/NJ/Middletown/NavesinkChallenge",
+    "weatherUrl": ""
+  },
+  "preRace": {
+    "status": "draft",
+    "preparedAt": "2026-09-30",
+    "headline": "Navesink.",
+    "subhead": "Know the course. Run your race.",
+    "deck": "A confirmed-race starter record for the Navesink Challenge 12K, ready for course-map review and Aaron's post-Chicago target.",
+    "verdict": "",
+    "targetTime": "",
+    "targetPace": "",
+    "targetPower": "",
+    "goalA": "Set the race purpose and target after the current race block is reviewed.",
+    "goalB": "Run progressively, keep mechanics organized and compete intelligently over the final third.",
+    "goalC": "Finish healthy and protect the next training block.",
+    "outlook": "Registration is confirmed for the Navesink Challenge 12K. The authoritative race source does not yet record Aaron's goal, priority or planned shoe, so this remains a logistics-backed starter rather than a final performance prescription.",
+    "guardrails": "Pain that changes gait, sharp or escalating symptoms, illness, dizziness or an abnormal warm-up response override pace, power, cadence and competitive goals.",
+    "courseSummary": "The official event is a 12K road race based at Bodman Park. The organizer posts a 2026 course map and enforces a strict 1:55 course limit, with roads reopening at noon. Elevation and turn-specific execution still require course-map review.",
+    "weather": "Add the final forecast 24–48 hours before the start. Adjust pace expectations before changing safe effort.",
+    "fieldSize": "",
+    "ageGroupSize": "",
+    "fieldRead": "No verified entry-list analysis has been added. Treat any participant list as a dated snapshot and race the athletes who actually start.",
+    "contenders": [],
+    "strategySummary": "Build from control to commitment. Verified terrain and conditions may change pace; effort and organized mechanics govern the plan.",
+    "strategy": [
+      {
+        "segment": "Opening mile",
+        "pace": "Controlled",
+        "power": "",
+        "cue": "Let the race establish itself before committing."
+      },
+      {
+        "segment": "Early middle",
+        "pace": "Goal effort after target review",
+        "power": "",
+        "cue": "Settle into economical rhythm and take free speed."
+      },
+      {
+        "segment": "Late middle",
+        "pace": "Effort-led",
+        "power": "",
+        "cue": "Stay patient through terrain and make clean passes."
+      },
+      {
+        "segment": "Final 2 km",
+        "pace": "Progress if Green",
+        "power": "",
+        "cue": "Compete directly and finish with mechanics, not strain."
+      }
+    ],
+    "readinessGreen": "Normal gait and stairs, ordinary soreness only, stable energy and a warm-up that improves movement: race the supported plan.",
+    "readinessYellow": "Heavy legs, incomplete recovery or mild tightness with normal gait: reduce the target, extend the warm-up and reassess.",
+    "readinessRed": "Sharp or increasing pain, gait change, illness, dizziness, abnormal fatigue or worsening symptoms: do not race hard.",
+    "logistics": [
+      {
+        "time": "Fri Nov 27 · 4:30–7:30 PM",
+        "item": "Advance bib and shirt pickup at Birdsmouth Brewing."
+      },
+      {
+        "time": "Sat Nov 28 · 1:00–4:00 PM",
+        "item": "Advance pickup at the M.Y.A.A. Little League Field clubhouse."
+      },
+      {
+        "time": "Sun Nov 29 · 8:00–9:50 AM",
+        "item": "Race-day pickup at the M.Y.A.A. clubhouse."
+      },
+      {
+        "time": "9:00 AM",
+        "item": "Target arrival for parking, pickup if needed and course orientation."
+      },
+      {
+        "time": "10:00 AM",
+        "item": "12K start."
+      }
+    ],
+    "bibPickup": "Fri Nov 27, 4:30–7:30 PM at Birdsmouth Brewing; Sat Nov 28, 1–4 PM at the M.Y.A.A. clubhouse; or race day 8–9:50 AM at the clubhouse.",
+    "parking": "Follow the organizer's 2026 parking guidance for Bodman Park and the M.Y.A.A. clubhouse.",
+    "arrival": "Target 9:00 AM; arrive earlier if using race-day pickup.",
+    "warmup": "Easy running, mobility, activation and short progressive strides; finish warm, not tired.",
+    "shoes": "",
+    "fuel": "Use the familiar pre-race meal and optional practiced pre-start carbohydrate. In-race fuel is optional only if already practiced for this duration.",
+    "hydration": "Arrive normally hydrated, use practiced sodium and fluid choices, and adjust quantity to verified weather rather than forcing a fixed volume.",
+    "equipmentNotes": "Charge the watch, confirm data screens and auto-lap settings, pin the bib, and use only equipment already proven in training or racing.",
+    "sources": [
+      {
+        "label": "Owner-private Racing Schedule",
+        "url": "",
+        "note": "Registered status and confirmed date, distance and location from the authoritative race bridge."
+      },
+      {
+        "label": "Official RunSignup event page",
+        "url": "https://runsignup.com/Race/Info/NJ/Middletown/NavesinkChallenge",
+        "note": "date, 12K start, pickup, venue, restrictions and course map"
+      }
+    ]
+  },
+  "postRace": {
+    "status": "pending",
+    "analyzedAt": "",
+    "headline": "",
+    "subhead": "",
+    "deck": "",
+    "verdict": "",
+    "officialTime": "",
+    "deviceTime": "",
+    "officialPace": "",
+    "bib": "",
+    "division": "Male 50–59",
+    "ageGroupPlace": "",
+    "ageGroupSize": "",
+    "overallPlace": "",
+    "overallSize": "",
+    "malePlace": "",
+    "maleSize": "",
+    "winningMargin": "",
+    "courseAscent": "",
+    "prImprovement": "",
+    "recordLabel": "",
+    "resultSummary": "",
+    "recordNote": "",
+    "resultQuote": "",
+    "fieldRead": "",
+    "competitors": [],
+    "executionSummary": "",
+    "splits": [],
+    "executionDiagnosis": "",
+    "avgHR": "",
+    "maxHR": "",
+    "avgPower": "",
+    "normPower": "",
+    "aerobicEffect": "",
+    "aerobicDiagnosis": "",
+    "cadence": "",
+    "strideLength": "",
+    "groundContact": "",
+    "verticalRatio": "",
+    "balance": "",
+    "closingCadence": "",
+    "closingStride": "",
+    "closingGroundContact": "",
+    "formDiagnosis": "",
+    "subjective": "",
+    "pain": "",
+    "shoes": "",
+    "whatWorked": [],
+    "opportunities": [],
+    "progression": [],
+    "progressionSummary": "",
+    "futureGoals": [],
+    "futureSummary": "",
+    "nextStep": "",
+    "sources": []
+  }
+}

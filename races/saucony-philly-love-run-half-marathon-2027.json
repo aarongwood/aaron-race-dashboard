@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 2,
+  "slug": "saucony-philly-love-run-half-marathon-2027",
+  "athlete": "Aaron Greenwood",
+  "race": {
+    "name": "Saucony Philly Love Run Half Marathon",
+    "distance": "Half Marathon",
+    "date": "2027-03-21",
+    "startTime": "",
+    "timezone": "America/New_York",
+    "location": "Philadelphia, PA",
+    "venue": "Philadelphia Museum of Art / Eakins Oval",
+    "priority": "",
+    "purpose": "Registered future race; purpose and target are not yet recorded",
+    "courseType": "Urban road",
+    "surface": "Paved",
+    "certification": "Unverified",
+    "registrationUrl": "https://www.loverunphilly.com/",
+    "resultsUrl": "",
+    "courseUrl": "https://www.loverunphilly.com/half-marathon",
+    "weatherUrl": ""
+  },
+  "preRace": {
+    "status": "draft",
+    "preparedAt": "2026-09-30",
+    "headline": "Love Run Philly.",
+    "subhead": "Know the course. Run your race.",
+    "deck": "A confirmed-race starter record for the 2027 half marathon, ready for Aaron's next-block goal and the final event schedule.",
+    "verdict": "",
+    "targetTime": "",
+    "targetPace": "",
+    "targetPower": "",
+    "goalA": "Set the race purpose and target after the current race block is reviewed.",
+    "goalB": "Run progressively, keep mechanics organized and compete intelligently over the final third.",
+    "goalC": "Finish healthy and protect the next training block.",
+    "outlook": "Registration is confirmed for the 2027 Saucony Philly Love Run Half Marathon. The race source records no goal, priority, start time or planned shoe yet; those fields remain open until the post-Chicago season plan is confirmed.",
+    "guardrails": "Pain that changes gait, sharp or escalating symptoms, illness, dizziness or an abnormal warm-up response override pace, power, cadence and competitive goals.",
+    "courseSummary": "The official race describes a scenic 13.1-mile urban road course starting and finishing at the Philadelphia Museum of Art's Eakins Oval, with downtown landmarks and Benjamin Franklin Parkway. The 2027 detailed map, elevation and start schedule still require verification.",
+    "weather": "Add the final forecast 24–48 hours before the start. Adjust pace expectations before changing safe effort.",
+    "fieldSize": "",
+    "ageGroupSize": "",
+    "fieldRead": "No verified entry-list analysis has been added. Treat any participant list as a dated snapshot and race the athletes who actually start.",
+    "contenders": [],
+    "strategySummary": "Build from control to commitment. Verified terrain and conditions may change pace; effort and organized mechanics govern the plan.",
+    "strategy": [
+      {
+        "segment": "First 5K",
+        "pace": "Conservative",
+        "power": "",
+        "cue": "Protect the day from early enthusiasm."
+      },
+      {
+        "segment": "5K–15K",
+        "pace": "Goal effort after target review",
+        "power": "",
+        "cue": "Fuel on schedule and hold economical rhythm."
+      },
+      {
+        "segment": "15K–20K",
+        "pace": "Effort-led",
+        "power": "",
+        "cue": "Stay tall and shorten the decision horizon."
+      },
+      {
+        "segment": "Final 1.1K",
+        "pace": "Progress if Green",
+        "power": "",
+        "cue": "Build cadence and compete through the line."
+      }
+    ],
+    "readinessGreen": "Normal gait and stairs, ordinary soreness only, stable energy and a warm-up that improves movement: race the supported plan.",
+    "readinessYellow": "Heavy legs, incomplete recovery or mild tightness with normal gait: reduce the target, extend the warm-up and reassess.",
+    "readinessRed": "Sharp or increasing pain, gait change, illness, dizziness, abnormal fatigue or worsening symptoms: do not race hard.",
+    "logistics": [
+      {
+        "time": "Schedule pending",
+        "item": "Confirm 2027 expo or packet-pickup window when the organizer publishes it."
+      },
+      {
+        "time": "T–1:30",
+        "item": "Arrive at Eakins Oval with extra time for Benjamin Franklin Parkway closures."
+      },
+      {
+        "time": "T–0:45",
+        "item": "Begin the half-marathon warm-up and readiness check."
+      },
+      {
+        "time": "START TBC",
+        "item": "Official 2027 start time remains to be recorded."
+      }
+    ],
+    "bibPickup": "The 2027 packet-pickup schedule is not yet recorded; verify it on the official event schedule before race week.",
+    "parking": "Benjamin Franklin Parkway closes on race morning. Use the organizer's final transit and parking instructions and allow extra arrival time.",
+    "arrival": "Target 75–90 minutes before the official start after the 2027 schedule is published.",
+    "warmup": "Easy movement, mobility and activation; use only the amount of running that improves readiness without spending race energy.",
+    "shoes": "",
+    "fuel": "Use the practiced pre-race meal and practiced half-marathon carbohydrate schedule; do not improvise products or timing.",
+    "hydration": "Arrive normally hydrated, use practiced sodium and fluid choices, and adjust quantity to verified weather rather than forcing a fixed volume.",
+    "equipmentNotes": "Charge the watch, confirm data screens and auto-lap settings, pin the bib, and use only equipment already proven in training or racing.",
+    "sources": [
+      {
+        "label": "Owner-private Racing Schedule",
+        "url": "",
+        "note": "Registered status and confirmed date, distance and location from the authoritative race bridge."
+      },
+      {
+        "label": "Official Saucony Love Run Philly site",
+        "url": "https://www.loverunphilly.com/",
+        "note": "2027 date, distance and event identity"
+      },
+      {
+        "label": "Official half-marathon page",
+        "url": "https://www.loverunphilly.com/half-marathon",
+        "note": "start/finish venue and current course description"
+      }
+    ]
+  },
+  "postRace": {
+    "status": "pending",
+    "analyzedAt": "",
+    "headline": "",
+    "subhead": "",
+    "deck": "",
+    "verdict": "",
+    "officialTime": "",
+    "deviceTime": "",
+    "officialPace": "",
+    "bib": "",
+    "division": "Male 50–59",
+    "ageGroupPlace": "",
+    "ageGroupSize": "",
+    "overallPlace": "",
+    "overallSize": "",
+    "malePlace": "",
+    "maleSize": "",
+    "winningMargin": "",
+    "courseAscent": "",
+    "prImprovement": "",
+    "recordLabel": "",
+    "resultSummary": "",
+    "recordNote": "",
+    "resultQuote": "",
+    "fieldRead": "",
+    "competitors": [],
+    "executionSummary": "",
+    "splits": [],
+    "executionDiagnosis": "",
+    "avgHR": "",
+    "maxHR": "",
+    "avgPower": "",
+    "normPower": "",
+    "aerobicEffect": "",
+    "aerobicDiagnosis": "",
+    "cadence": "",
+    "strideLength": "",
+    "groundContact": "",
+    "verticalRatio": "",
+    "balance": "",
+    "closingCadence": "",
+    "closingStride": "",
+    "closingGroundContact": "",
+    "formDiagnosis": "",
+    "subjective": "",
+    "pain": "",
+    "shoes": "",
+    "whatWorked": [],
+    "opportunities": [],
+    "progression": [],
+    "progressionSummary": "",
+    "futureGoals": [],
+    "futureSummary": "",
+    "nextStep": "",
+    "sources": []
+  }
+}

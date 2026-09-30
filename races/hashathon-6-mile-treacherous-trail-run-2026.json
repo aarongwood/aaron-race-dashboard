@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 2,
+  "slug": "hashathon-6-mile-treacherous-trail-run-2026",
+  "athlete": "Aaron Greenwood",
+  "race": {
+    "name": "HASHaTHON 6-Mile Treacherous Trail Run",
+    "distance": "6 Mile Trail",
+    "date": "2026-11-08",
+    "startTime": "11:00 AM",
+    "timezone": "America/New_York",
+    "location": "Matawan, NJ",
+    "venue": "Cheesequake State Park, 300 Gordon Road",
+    "priority": "",
+    "purpose": "Registered future race; purpose and target are not yet recorded",
+    "courseType": "Trail",
+    "surface": "Trail",
+    "certification": "Unverified",
+    "registrationUrl": "https://runsignup.com/Race/NJ/Matawan/Hashathon",
+    "resultsUrl": "",
+    "courseUrl": "",
+    "weatherUrl": ""
+  },
+  "preRace": {
+    "status": "draft",
+    "preparedAt": "2026-09-30",
+    "headline": "HASHaTHON.",
+    "subhead": "Know the course. Run your race.",
+    "deck": "A confirmed-race starter record for the six-mile Cheesequake trail race, ready for terrain reconnaissance and Aaron's final target.",
+    "verdict": "",
+    "targetTime": "",
+    "targetPace": "",
+    "targetPower": "",
+    "goalA": "Set the race purpose and target after the current race block is reviewed.",
+    "goalB": "Run progressively, keep mechanics organized and compete intelligently over the final third.",
+    "goalC": "Finish healthy and protect the next training block.",
+    "outlook": "Registration is confirmed for the HASHaTHON 6-Mile Treacherous Trail Run. The race source does not yet record a goal, priority or shoe, so the plan stays effort- and footing-led until those decisions are made.",
+    "guardrails": "Pain that changes gait, sharp or escalating symptoms, illness, dizziness or an abnormal warm-up response override pace, power, cadence and competitive goals.",
+    "courseSummary": "The official event is a six-mile trail race at Cheesequake State Park. The organizer directs runners to follow signs to the pavilion at the lake. Exact elevation, technical features and current footing remain to be verified.",
+    "weather": "Add the final forecast 24–48 hours before the start. Adjust pace expectations before changing safe effort.",
+    "fieldSize": "",
+    "ageGroupSize": "",
+    "fieldRead": "No verified entry-list analysis has been added. Treat any participant list as a dated snapshot and race the athletes who actually start.",
+    "contenders": [],
+    "strategySummary": "Build from control to commitment. Verified terrain and conditions may change pace; effort and organized mechanics govern the plan.",
+    "strategy": [
+      {
+        "segment": "Opening terrain",
+        "pace": "Controlled by effort",
+        "power": "",
+        "cue": "Stay patient while footing and traffic settle."
+      },
+      {
+        "segment": "Climbs",
+        "pace": "Sustainable pressure",
+        "power": "",
+        "cue": "Short steps and quick contact; hike only if it is faster."
+      },
+      {
+        "segment": "Runnable / descents",
+        "pace": "Free speed",
+        "power": "",
+        "cue": "Quick feet, sight the line and avoid braking."
+      },
+      {
+        "segment": "Final segment",
+        "pace": "Progress if Green",
+        "power": "",
+        "cue": "Compete without sacrificing footing or form."
+      }
+    ],
+    "readinessGreen": "Normal gait and stairs, ordinary soreness only, stable energy and a warm-up that improves movement: race the supported plan.",
+    "readinessYellow": "Heavy legs, incomplete recovery or mild tightness with normal gait: reduce the target, extend the warm-up and reassess.",
+    "readinessRed": "Sharp or increasing pain, gait change, illness, dizziness, abnormal fatigue or worsening symptoms: do not race hard.",
+    "logistics": [
+      {
+        "time": "9:30 AM",
+        "item": "Race-day-only bib and shirt pickup opens."
+      },
+      {
+        "time": "10:15 AM",
+        "item": "Target arrival, parking and course-orientation check."
+      },
+      {
+        "time": "10:30 AM",
+        "item": "Begin trail-appropriate mobility, activation and readiness check."
+      },
+      {
+        "time": "11:00 AM",
+        "item": "Six-mile trail race start."
+      }
+    ],
+    "bibPickup": "Race day only, beginning at 9:30 AM.",
+    "parking": "Cheesequake State Park, 300 Gordon Road; follow signs to the pavilion at the lake.",
+    "arrival": "Target 10:15 AM, earlier if the organizer issues tighter parking guidance.",
+    "warmup": "Easy movement, ankle and hip mobility, activation and short trail-safe strides only where footing is clear.",
+    "shoes": "",
+    "fuel": "Use the familiar pre-race meal and optional practiced pre-start carbohydrate. Carry fuel only if it is part of the confirmed trail strategy.",
+    "hydration": "Arrive normally hydrated, use practiced sodium and fluid choices, and adjust quantity to verified weather rather than forcing a fixed volume.",
+    "equipmentNotes": "Choose a proven shoe only after checking current trail footing. Charge the watch, use a trail-appropriate screen and avoid narrow pace alerts.",
+    "sources": [
+      {
+        "label": "Owner-private Racing Schedule",
+        "url": "",
+        "note": "Registered status and confirmed date, distance and location from the authoritative race bridge."
+      },
+      {
+        "label": "Official RunSignup event page",
+        "url": "https://runsignup.com/Race/NJ/Matawan/Hashathon",
+        "note": "date, start, pickup, venue and parking"
+      }
+    ]
+  },
+  "postRace": {
+    "status": "pending",
+    "analyzedAt": "",
+    "headline": "",
+    "subhead": "",
+    "deck": "",
+    "verdict": "",
+    "officialTime": "",
+    "deviceTime": "",
+    "officialPace": "",
+    "bib": "",
+    "division": "Male 50–59",
+    "ageGroupPlace": "",
+    "ageGroupSize": "",
+    "overallPlace": "",
+    "overallSize": "",
+    "malePlace": "",
+    "maleSize": "",
+    "winningMargin": "",
+    "courseAscent": "",
+    "prImprovement": "",
+    "recordLabel": "",
+    "resultSummary": "",
+    "recordNote": "",
+    "resultQuote": "",
+    "fieldRead": "",
+    "competitors": [],
+    "executionSummary": "",
+    "splits": [],
+    "executionDiagnosis": "",
+    "avgHR": "",
+    "maxHR": "",
+    "avgPower": "",
+    "normPower": "",
+    "aerobicEffect": "",
+    "aerobicDiagnosis": "",
+    "cadence": "",
+    "strideLength": "",
+    "groundContact": "",
+    "verticalRatio": "",
+    "balance": "",
+    "closingCadence": "",
+    "closingStride": "",
+    "closingGroundContact": "",
+    "formDiagnosis": "",
+    "subjective": "",
+    "pain": "",
+    "shoes": "",
+    "whatWorked": [],
+    "opportunities": [],
+    "progression": [],
+    "progressionSummary": "",
+    "futureGoals": [],
+    "futureSummary": "",
+    "nextStep": "",
+    "sources": []
+  }
+}
